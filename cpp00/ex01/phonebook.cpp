@@ -10,42 +10,43 @@ bool PhoneBook::check_input(std::string &input)
 		return false;
 	return true;
 }
+
 void PhoneBook::search_contact()
 {
 
 }
+
 void PhoneBook::add_contact()
 {
 	static int index = 0;
-	std::string input;
-	
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, input);
-	
-	agenda[index].set_first(input, index);
 
-	if (index++ == 8) //segfaukt :(
+	agenda[index].set_first(index);
+	agenda[index].set_last();
+	agenda[index].set_nickname();
+	agenda[index].set_secret();
+	//agenda[index].set_number();
+
+	index++;
+	if (index == 8)
 		index = 0;
 }
 
-void Contact::set_first(std::string &name, int index)
-{
-	FirstName = name;
-	Index = index;
-	std::cout << "first name added: " << FirstName << " contact n: " << Index << std::endl;
-}
+
 
 int main(void)
 {
 	std::string input;
 	PhoneBook agenda;
 
-	while(true)
+	while(true && std::cin) //why?
 	{
 		std::cout << "Enter a command (ADD, SEARCH or EXIT): "; // enter and ctrl d
-		//std::getline(std::cin, input);
-		std::cin >> input;
-		std::cin.ignore();
+		std::getline(std::cin, input);
+		//std::cin >> input;
+		/* if (std::cin.eof())
+			break; */
+			//std::cout<< "here\n";
+		//std::cin.ignore();
 		if (agenda.check_input(input) == false)
 			break;
 	}

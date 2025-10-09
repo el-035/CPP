@@ -18,11 +18,11 @@ class Contact{
 	std::string get_secret();
 	unsigned int get_number();
 
-	void set_first(std::string &name, int index);
-	void set_last(std::string &name);
-	void set_nickname(std::string &name);
-	void set_secret(std::string &secret);
-	void set_number(unsigned int number);
+	void set_first(int index);
+	void set_last();
+	void set_nickname();
+	void set_secret();
+	void set_number();
 };
 
 class PhoneBook{

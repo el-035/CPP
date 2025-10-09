@@ -1,12 +1,12 @@
 
 CXX = c++
 
-SRC = phonebook.cpp
+SRC = phonebook.cpp set_get.cpp
 
 #creates object files from the c files given
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 NAME = phonebook
 
