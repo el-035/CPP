@@ -18,11 +18,7 @@ void Contact::display_line(std::string data, bool last)
 	if (data.size() > 10)
 		std::cout << data.substr(0, 9) << ".";
 	else
-	{
-		for (size_t i = 0; i < 10 - data.size(); i++)
-			std::cout << ' ';
-		std::cout << data;
-	}
+		std::cout << std::right << std::setw(10) << data;
 	if (!last)
 		std::cout <<  "|";
 	else
@@ -39,15 +35,15 @@ void PhoneBook::search_contact()
 		return ;
 	}
 	//display contacts
-	agenda[index].display_line("INDEX", false);
-	agenda[index].display_line("FIRST NAME", false);
-	agenda[index].display_line("LAST NAME", false);
-	agenda[index].display_line("NICKNAME", true);
+	std::cout << std::right << std::setw(10) << "INDEX" << "|"
+		<< std::setw(10) << "FIRST NAME" << "|"
+		<< std::setw(10) << "LAST NAME" << "|"
+		<< std::setw(10) << "NICKNAME" << std::endl;
 
 	while(index < 8)
 	{
 		if (!agenda[index].get_first().empty())
-			std::cout << "         " << index << "|";
+			std::cout << std::right << std::setw(10) << index << "|";
 		agenda[index].display_line(agenda[index].get_first(), false);
 		agenda[index].display_line(agenda[index].get_last(), false);
 		agenda[index].display_line(agenda[index].get_nickname(), true);
