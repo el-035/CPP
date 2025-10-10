@@ -12,7 +12,6 @@ void Contact::set_first(int index)
 	}
 	FirstName = input;
 	Index = index;
-	std::cout << "first name added: " << FirstName << " contact n: " << Index << std::endl;
 }
 
 void Contact::set_last()
@@ -26,7 +25,6 @@ void Contact::set_last()
 		//CHECK INPUT ALPHA
 	}
 	LastName = name;
-	std::cout << "last name added: " << LastName << std::endl;
 }
 
 void Contact::set_nickname()
@@ -40,7 +38,6 @@ void Contact::set_nickname()
 		//CHECK INPUT ALPHA
 	}
 	Nickname = name;
-	std::cout << "nickname added: " << Nickname << std::endl;
 }
 
 void Contact::set_secret()
@@ -54,7 +51,6 @@ void Contact::set_secret()
 		//CHECK INPUT ALPHA
 	}
 	DarkestSecret = secret;
-	std::cout << "secret added: " << DarkestSecret << std::endl;
 }
 
 void Contact::set_number()
@@ -66,7 +62,30 @@ void Contact::set_number()
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, input);
-		//convert to unsigned int
+		//if ()
+		std::stringstream ss(input);
+		ss >> number;
 		std::cout << number << std::endl;
 	}
 }
+
+std::string Contact::get_first()
+{
+	return (FirstName);
+}
+std::string Contact::get_last()
+{
+	return (LastName);
+}
+std::string Contact::get_nickname()
+{
+	return (Nickname);
+}
+std::string Contact::get_secret()
+{
+	return (DarkestSecret);
+}
+/* unsigned int Contact::get_number()
+{
+	return (PhoneNumber);
+} */

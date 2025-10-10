@@ -11,9 +11,55 @@ bool PhoneBook::check_input(std::string &input)
 	return true;
 }
 
+bool Contact::display_line(std::string data, bool last)
+{
+	if (data.empty())
+		return (false);
+	if (data.size() > 10)
+		std::cout << data.substr(0, 9) << ".";
+	else
+	{
+		for (size_t i = 0; i < 10 - data.size(); i++)
+			std::cout << ' ';
+		std::cout << data;
+	}
+	if (!last)
+		std::cout <<  "|";
+	else
+		std::cout << std::endl;
+	return(true);
+}
+
 void PhoneBook::search_contact()
 {
+	int index = 0;
 
+	//display contacts
+	while(index < 8)
+	{
+		if (!agenda[index].get_first().empty())
+			std::cout << "         " << index << "|";
+		agenda[index].display_line(agenda[index].get_first(), false);
+		agenda[index].display_line(agenda[index].get_last(), false);
+		agenda[index].display_line(agenda[index].get_nickname(), true);
+		index++;
+	}
+
+	//ask for index
+	std::string input;
+	std::cout << "Enter contact index for more info: ";
+	std::getline(std::cin, input);
+	std::stringstream ss(input);
+	ss >> index;
+	if ((index < 0 || index > 7) || agenda[index].get_first().empty())
+	{
+		std::cout << "Invalid or empty contact info requested" << std::endl;
+		return;
+	}
+	//show contact
+	std::cout << "First name: " << agenda[index].get_first() << std::endl << "Last Name: " << agenda[index].get_last() << std::endl;
+	std::cout << "Nickname: " << agenda[index].get_nickname() /* << std::endl << "Phone number: " << agenda[index].get_number()*/<< std::endl;
+	std::cout << "Darkest Secret: " << agenda[index].get_secret() << std::endl;
 }
 
 void PhoneBook::add_contact()
@@ -24,7 +70,7 @@ void PhoneBook::add_contact()
 	agenda[index].set_last();
 	agenda[index].set_nickname();
 	agenda[index].set_secret();
-	//agenda[index].set_number();
+	agenda[index].set_number();
 
 	index++;
 	if (index == 8)

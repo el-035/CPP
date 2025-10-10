@@ -2,6 +2,8 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <sstream>
+#include <string>
 
 class Contact{
 	int Index;
@@ -18,6 +20,8 @@ class Contact{
 	std::string get_secret();
 	unsigned int get_number();
 
+	bool display_line(std::string data, bool last);
+
 	void set_first(int index);
 	void set_last();
 	void set_nickname();
@@ -28,9 +32,9 @@ class Contact{
 class PhoneBook{
 	Contact agenda[8];
 	void add_contact();
-	void search_contact();
-
+	
 	public:
+	void search_contact();
 	bool check_input(std::string &input);
 };
 
