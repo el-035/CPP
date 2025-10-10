@@ -1,10 +1,20 @@
 #include "phonebook.hpp"
 
-bool Contact::validate_input(std::string data)
+bool Contact::validate_alpha(std::string data)
 {
 	for (size_t i = 0; i < data.size(); i++)
 	{
 		if (!std::isalpha(data[i]))
+			return false;
+	}
+	return true;
+}
+
+bool Contact::validate_num(std::string data)
+{
+	for (size_t i = 0; i < data.size(); i++)
+	{
+		if (!std::isdigit(data[i]))
 			return false;
 	}
 	return true;
@@ -18,7 +28,7 @@ void Contact::set_first(int index)
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, input);
-		if (!validate_input(input))
+		if (!validate_alpha(input))
 		{
 			std::cout << "Only letters allowed. ";
 			input.clear();
@@ -36,7 +46,7 @@ void Contact::set_last()
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, name);
-		if (!validate_input(name))
+		if (!validate_alpha(name))
 		{
 			std::cout << "Only letters allowed. ";
 			name.clear();
@@ -53,7 +63,7 @@ void Contact::set_nickname()
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, name);
-		if (!validate_input(name))
+		if (!validate_alpha(name))
 		{
 			std::cout << "Only letters allowed. ";
 			name.clear();
@@ -83,6 +93,12 @@ void Contact::set_number()
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, input);
+		if (!validate_num(input))
+		{
+			std::cout << "Only digits allowed. ";
+			input.clear();
+			continue;
+		}
 		std::stringstream ss(input);
 		if (!(ss >> number) || !ss.eof())	//shoule i check for negatives?
 		{
