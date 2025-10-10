@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 
+
 class Contact{
 	int Index;
 	std::string FirstName;
@@ -20,8 +21,8 @@ class Contact{
 	std::string get_secret();
 	unsigned int get_number();
 
-	bool display_line(std::string data, bool last);
-
+	void display_line(std::string data, bool last); //no need
+	bool validate_input(std::string data);
 	void set_first(int index);
 	void set_last();
 	void set_nickname();

@@ -1,5 +1,15 @@
 #include "phonebook.hpp"
 
+bool Contact::validate_input(std::string data)
+{
+	for (size_t i = 0; i < data.size(); i++)
+	{
+		if (!std::isalpha(data[i]))
+			return false;
+	}
+	return true;
+}
+
 void Contact::set_first(int index)
 {
 	std::string input;
@@ -8,7 +18,11 @@ void Contact::set_first(int index)
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, input);
-		//CHECK INPUT ALPHA
+		if (!validate_input(input))
+		{
+			std::cout << "Only letters allowed. ";
+			input.clear();
+		}
 	}
 	FirstName = input;
 	Index = index;
@@ -22,7 +36,11 @@ void Contact::set_last()
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, name);
-		//CHECK INPUT ALPHA
+		if (!validate_input(name))
+		{
+			std::cout << "Only letters allowed. ";
+			name.clear();
+		}
 	}
 	LastName = name;
 }
@@ -35,7 +53,11 @@ void Contact::set_nickname()
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, name);
-		//CHECK INPUT ALPHA
+		if (!validate_input(name))
+		{
+			std::cout << "Only letters allowed. ";
+			name.clear();
+		}
 	}
 	Nickname = name;
 }
@@ -48,7 +70,6 @@ void Contact::set_secret()
 	{
 		std::cout << "Enter darkest secret: ";
 		std::getline(std::cin, secret);
-		//CHECK INPUT ALPHA
 	}
 	DarkestSecret = secret;
 }
@@ -62,11 +83,15 @@ void Contact::set_number()
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, input);
-		//if ()
 		std::stringstream ss(input);
-		ss >> number;
-		std::cout << number << std::endl;
+		if (!(ss >> number) || !ss.eof())	//shoule i check for negatives?
+		{
+			input.clear();
+			number = 0;
+			std::cout << "Number invalid or too long. ";
+		}
 	}
+	PhoneNumber = number;
 }
 
 std::string Contact::get_first()
@@ -85,7 +110,7 @@ std::string Contact::get_secret()
 {
 	return (DarkestSecret);
 }
-/* unsigned int Contact::get_number()
+unsigned int Contact::get_number()
 {
 	return (PhoneNumber);
-} */
+}
