@@ -72,7 +72,7 @@ void PhoneBook::add_contact()
 {
 	static int index = 0;
 
-	agenda[index].set_first(index);
+	agenda[index].set_first();
 	agenda[index].set_last();
 	agenda[index].set_nickname();
 	agenda[index].set_secret();
@@ -88,9 +88,9 @@ int main(void)
 	std::string input;
 	PhoneBook agenda;
 
-	while(true && std::cin) //why?
+	while(true && std::cin)
 	{
-		std::cout << "Enter a command (ADD, SEARCH or EXIT): "; // enter and ctrl d
+		std::cout << "Enter a command (ADD, SEARCH or EXIT): ";
 		std::getline(std::cin, input);
 		if (agenda.check_input(input) == false)
 			break;

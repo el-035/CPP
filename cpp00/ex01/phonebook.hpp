@@ -1,5 +1,6 @@
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+// #ifndef PHONEBOOK_HPP
+// # define PHONEBOOK_HPP
+#pragma once
 
 #include <iostream>
 #include <sstream>
@@ -7,7 +8,6 @@
 #include <iomanip>
 
 class Contact{
-	int Index;
 	std::string FirstName;
 	std::string LastName;
 	std::string Nickname;
@@ -24,7 +24,7 @@ class Contact{
 	void display_line(std::string data, bool last);
 	bool validate_alpha(std::string data);
 	bool validate_num(std::string data);
-	void set_first(int index);
+	void set_first();
 	void set_last();
 	void set_nickname();
 	void set_secret();
@@ -34,10 +34,10 @@ class Contact{
 class PhoneBook{
 	Contact agenda[8];
 	void add_contact();
+	void search_contact();
 	
 	public:
-	void search_contact();
 	bool check_input(std::string &input);
 };
 
-#endif
+// #endif

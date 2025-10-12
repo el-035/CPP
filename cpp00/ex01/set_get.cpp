@@ -20,7 +20,7 @@ bool Contact::validate_num(std::string data)
 	return true;
 }
 
-void Contact::set_first(int index)
+void Contact::set_first()
 {
 	std::string input;
 
@@ -35,7 +35,6 @@ void Contact::set_first(int index)
 		}
 	}
 	FirstName = input;
-	Index = index;
 }
 
 void Contact::set_last()
@@ -100,7 +99,7 @@ void Contact::set_number()
 			continue;
 		}
 		std::stringstream ss(input);
-		if (!(ss >> number) || !ss.eof())	//shoule i check for negatives?
+		if (!(ss >> number) || !ss.eof())
 		{
 			input.clear();
 			number = 0;
