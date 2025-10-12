@@ -2,7 +2,7 @@
 
 void print_louder(const std::string &word)
 {
-	for (int i = 0; i < word.size(); i++)
+	for (size_t i = 0; i < word.size(); i++)
 		std::cout << (char)std::toupper(word[i]);
 }
 
