@@ -1,13 +1,10 @@
 #include"Zombie.hpp"
 
-Zombie* Zombie::newZombie(std::string name)
+Zombie* newZombie(std::string name)
 {
 	//create zombie?
-	Zombie *test;
+	Zombie *z = new Zombie(name);
 	
-	//name it
-	
-	Name = name;
 	//return pointer to zombie
-	return (test);
+	return (z);
 }

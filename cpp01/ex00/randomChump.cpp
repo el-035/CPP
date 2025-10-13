@@ -1,13 +1,10 @@
 #include"Zombie.hpp"
 
-void Zombie::randomChump(std::string name)
+void randomChump(std::string name)
 {
 	//create zombie?
-	Zombie *test;
-
-	//name it
-	Name = name;
+	Zombie z(name);
 
 	//make it announce
-	announce();
+	z.announce();
 }

@@ -2,5 +2,15 @@
 
 void Zombie::announce(void)
 {
-	std::cout << Name << ": BraiiiiiiinnnzzzZ...";
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie::Zombie(std::string n)
+{
+	name = n;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << name << " has been destroyed" << std::endl;
 }
