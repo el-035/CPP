@@ -1,4 +1,18 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
+
+void Contact::display_line(std::string data, bool last)
+{
+	if (data.empty())
+		return ;
+	if (data.size() > 10)
+		std::cout << data.substr(0, 9) << ".";
+	else
+		std::cout << std::right << std::setw(10) << data;
+	if (!last)
+		std::cout <<  "|";
+	else
+		std::cout << std::endl;
+}
 
 bool Contact::validate_alpha(std::string data)
 {
@@ -24,7 +38,7 @@ void Contact::set_first()
 {
 	std::string input;
 
-	while (input.empty())
+	while (input.empty() && std::cin)
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, input);
@@ -41,7 +55,7 @@ void Contact::set_last()
 {
 	std::string name;
 
-	while (name.empty())
+	while (name.empty() && std::cin)
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, name);
@@ -58,7 +72,7 @@ void Contact::set_nickname()
 {
 	std::string name;
 
-	while (name.empty())
+	while (name.empty() && std::cin)
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, name);
@@ -75,7 +89,7 @@ void Contact::set_secret()
 {
 	std::string secret;
 
-	while (secret.empty())
+	while (secret.empty() && std::cin)
 	{
 		std::cout << "Enter darkest secret: ";
 		std::getline(std::cin, secret);
@@ -88,7 +102,7 @@ void Contact::set_number()
 	std::string input;
 	unsigned int number;
 
-	while (input.empty())
+	while (input.empty() && std::cin)
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, input);

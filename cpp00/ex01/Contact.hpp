@@ -1,5 +1,3 @@
-// #ifndef PHONEBOOK_HPP
-// # define PHONEBOOK_HPP
 #pragma once
 
 #include <iostream>
@@ -30,14 +28,3 @@ class Contact{
 	void set_secret();
 	void set_number();
 };
-
-class PhoneBook{
-	Contact agenda[8];
-	void add_contact();
-	void search_contact();
-	
-	public:
-	bool check_input(std::string &input);
-};
-
-// #endif

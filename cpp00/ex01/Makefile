@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = phonebook.cpp set_get.cpp
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 
 #creates object files from the c files given
 OBJ = $(SRC:.cpp=.o)
