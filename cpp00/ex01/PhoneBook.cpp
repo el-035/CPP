@@ -47,17 +47,17 @@ void PhoneBook::search_contact()
 		{
 			std::cout << "Invalid or empty contact info requested. ";
 			input.clear();
-			index = -1;
+			index = 10;
 		}
 	}
-	if (index == -1)
-		return ;
 	//show contact
-	std::cout << "First name: " << agenda[index].get_first() << std::endl << "Last Name: " << agenda[index].get_last() << std::endl;
-	std::cout << "Nickname: " << agenda[index].get_nickname() << std::endl << "Phone number: " << agenda[index].get_number() << std::endl;
-	std::cout << "Darkest Secret: " << agenda[index].get_secret() << std::endl;
+	if (!agenda[index].get_first().empty())
+	{
+		std::cout << "First name: " << agenda[index].get_first() << std::endl << "Last Name: " << agenda[index].get_last() << std::endl;
+		std::cout << "Nickname: " << agenda[index].get_nickname() << std::endl << "Phone number: " << agenda[index].get_number() << std::endl;
+		std::cout << "Darkest Secret: " << agenda[index].get_secret() << std::endl;
+	}
 }
-
 void PhoneBook::add_contact()
 {
 	static int index = 0;
