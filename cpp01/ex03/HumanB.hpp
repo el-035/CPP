@@ -8,8 +8,8 @@ class HumanB{
 	Weapon* weapon;
 
 	public:
-	HumanB(std::string name);
+	HumanB(const std::string &name);
 
-	void setWeapon(std::string type);
+	void setWeapon(Weapon &type);
 	void attack();
 };
