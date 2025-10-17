@@ -1,4 +1,3 @@
-
 CXX = c++
 
 SRC = megaphone.cpp
