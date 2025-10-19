@@ -8,7 +8,7 @@ int main(void)
 	std::cout << std::endl;
 
 	//create zombie on the heap
-	Zombie *z = newZombie("Gumpi");
+	Zombie *z = newZombie("Zombie");
 	z->announce();
 	delete z;
 }

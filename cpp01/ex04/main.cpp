@@ -8,7 +8,8 @@ bool CheckInput(std::string &filename, std::string &s1)
 
 	if (!file.is_open())
 		return false;
-	//check if file is empty
+	if (file.tellg() == 0)
+		return false;
 
 	if (s1.empty())
 		return false;

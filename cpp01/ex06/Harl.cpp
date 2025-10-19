@@ -57,9 +57,9 @@ void Harl::complain(std::string level)
 	case ERROR:
 		lev = 3;
 		break;
-	case UNKNOWN:
+	default:
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		break;
+		return;
 	};
 	
 	for (int i = lev; i < 4; i++){

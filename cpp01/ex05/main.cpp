@@ -10,4 +10,6 @@ int main(void)
 		harl.complain(levels[i]);
 		std::cout << std::endl;
 	}
+
+	harl.complain("HOLA");
 }
