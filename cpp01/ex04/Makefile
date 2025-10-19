@@ -6,13 +6,13 @@ SRC = main.cpp
 #creates object files from the c files given
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-MMD -MP
 
 NAME = sed
 
-DEP = $(OBJ:.o=.d)
+#DEP = $(OBJ:.o=.d)
 
--include $(DEP)
+#-include $(DEP)
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
@@ -27,7 +27,8 @@ $(NAME): $(OBJ)
 
 #gets rid of all o files after creating application
 clean:
-	rm -f $(OBJ) $(DEP)
+	rm -f $(OBJ) 
+#$(DEP)
 
 #removes o files
 fclean: clean

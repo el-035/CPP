@@ -2,45 +2,51 @@
 #include <iostream>
 #include <string>
 
-bool CheckInput(std::string &filename, std::string &s1, std::string &s2)
+bool CheckInput(std::string &filename, std::string &s1)
 {
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 
 	if (!file.is_open())
 		return false;
+	//check if file is empty
+
 	if (s1.empty())
 		return false;
 	return true;
 }
 
-void replace(std::string& line, std::string& s1, std::string& s2)
+void replaceStr(std::string& line, std::string& s1, std::string& s2)
 {
-	std::string* r;
+	size_t pos;
+	std::string newLine = line;
 
 	while(true){
-		r = std::find(line, line.size(), s1);
-
+		pos = line.find(s1);
+		if (pos == std::string::npos)
+			break;
+		newLine = line.substr(0, pos) + s2 + line.substr(pos + s1.size());
+		line = newLine;
 	}
 }
 
 void ReadWrite(std::string &filename, std::string &s1, std::string &s2)
 {
 	std::string line;
-	while(true){
-		std::ifstream file(filename);
-		/* if (!file.is_open())			has been checked already
-			return ; */
-		std::getline(file, line);	//check eof?
-		if (line.empty())
-			break ;
-		
+	std::ofstream newFile((filename + ".replace").c_str(), std::ios::trunc);
+	std::ifstream file(filename.c_str());
+
+	while(std::getline(file, line)){
+		replaceStr(line, s1, s2);
+		newFile << line;
+		if (!file.eof())
+			newFile << std::endl;
 	}
 }
 
 int main(int argc, char **argv)
 {
 	if (argc != 4){
-		std::cout << "Input error *_*" << std::endl;
+		std::cout << "Input error" << std::endl;
 		return -1;
 	}
 
@@ -48,18 +54,9 @@ int main(int argc, char **argv)
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	//check input
-	if (!CheckInput(filename, s1, s2)){
-		std::cout << "Input error *_*" << std::endl;
+	if (!CheckInput(filename, s1)){
+		std::cout << "Input error" << std::endl;
 		return -1;
 	}
-
-	
-	//read file loop
-
-		//readline
-
-		//modify string
-
-		//put to file
+	ReadWrite(filename, s1, s2);
 }
