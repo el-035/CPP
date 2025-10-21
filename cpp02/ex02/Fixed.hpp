@@ -38,6 +38,13 @@ class Fixed{
 	Fixed operator++(int);
 	Fixed operator--(int);
 
+	static Fixed& min(Fixed& first, Fixed& second);
+	static const Fixed& min(const Fixed& first, const Fixed& second);
+
+	static Fixed& max(Fixed& first, Fixed& second);
+	static const Fixed& max(const Fixed& first, const Fixed& second);
+
+
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed& object);

@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 
 int main( void ) {
-/* 	Fixed a;
+	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	
 	std::cout << a << std::endl;
@@ -15,7 +15,7 @@ int main( void ) {
 	std::cout << Fixed::max( a, b ) << std::endl;
 	
 	return 0;
- */
+
 
 	{//COMPARISONS
 		Fixed a(15.15f);
@@ -27,7 +27,6 @@ int main( void ) {
 		std::cout << "a <= b " << (a <= b) << std::endl;
 		std::cout << "a == b " << (a == b) << std::endl;
 		std::cout << "a != b " << (a != b) << std::endl << std::endl;
-
 
 	}
 	{//ADDITION
@@ -97,4 +96,7 @@ int main( void ) {
 		std::cout << "--a " << --a << std::endl;
 		std::cout << "--b " << --b << std::endl;
 	}
+
+	
+
 }	

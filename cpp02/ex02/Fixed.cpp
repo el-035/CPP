@@ -161,12 +161,42 @@ Fixed& Fixed::operator--()
 
 Fixed Fixed::operator++(int)
 {
+	Fixed temp = *this;
 	value += 1;
-	return(*this);
+	return(temp);
 }
 
 Fixed Fixed::operator--(int)
 {
+	Fixed temp = *this;
 	value -= 1;
-	return(*this);
+	return(temp);
+}
+
+Fixed& Fixed::min(Fixed& first, Fixed& second)
+{
+	if (first.value < second.value)
+		return (first);
+	return (second);
+}
+
+Fixed& Fixed::max(Fixed& first, Fixed& second)
+{
+	if (first.value > second.value)
+		return (first);
+	return (second);
+}
+
+const Fixed& Fixed::min(const Fixed& first, const Fixed& second)
+{
+	if (first.value < second.value)
+		return (first);
+	return (second);
+}
+
+const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
+{
+	if (first.value > second.value)
+		return (first);
+	return (second);
 }
