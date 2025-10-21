@@ -6,13 +6,22 @@ bool CheckInput(std::string &filename, std::string &s1)
 {
 	std::ifstream file(filename.c_str());
 
-	if (!file.is_open())
+	if (!file.is_open()){
+		std::cerr << "Error opening file" << std::endl;
 		return false;
-	if (file.tellg() == 0)
-		return false;
+	}
 
-	if (s1.empty())
+	file.seekg(0, std::ios::end);
+	if (file.tellg() == 0){
+		std::cerr << "Empty file" << std::endl;
 		return false;
+	}
+	file.seekg(0, std::ios::beg);
+
+	if (s1.empty()){
+		std::cerr << "No string to be replaced" << std::endl;
+		return false;
+	}
 	return true;
 }
 
@@ -47,7 +56,7 @@ void ReadWrite(std::string &filename, std::string &s1, std::string &s2)
 int main(int argc, char **argv)
 {
 	if (argc != 4){
-		std::cout << "Input error" << std::endl;
+		std::cerr << "Input error" << std::endl;
 		return -1;
 	}
 
@@ -55,9 +64,7 @@ int main(int argc, char **argv)
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	if (!CheckInput(filename, s1)){
-		std::cout << "Input error" << std::endl;
+	if (!CheckInput(filename, s1))
 		return -1;
-	}
 	ReadWrite(filename, s1, s2);
 }

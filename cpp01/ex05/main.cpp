@@ -11,5 +11,8 @@ int main(void)
 		std::cout << std::endl;
 	}
 
+	harl.complain(levels[2]);
+	std::cout << std::endl;
+
 	harl.complain("HOLA");
 }

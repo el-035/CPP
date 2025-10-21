@@ -45,21 +45,21 @@ void Harl::complain(std::string level)
 
 	switch (Harl::GetLevel(level))
 	{
-	case DEBUG:
-		lev = 0;
-		break;
-	case INFO:
-		lev = 1;
-		break;
-	case WARNING:
-		lev = 2;
-		break;
-	case ERROR:
-		lev = 3;
-		break;
-	default:
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		return;
+		case DEBUG:
+			lev = 0;
+			break;
+		case INFO:
+			lev = 1;
+			break;
+		case WARNING:
+			lev = 2;
+			break;
+		case ERROR:
+			lev = 3;
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			return;
 	};
 	
 	for (int i = lev; i < 4; i++){
