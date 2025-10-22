@@ -15,12 +15,6 @@ class Point{
 
 	Fixed getX(void) const;
 	Fixed getY(void) const;
-
-	/* bool operator==(const Point& other) const;
-	bool operator>(const Point& other) const;
-	bool operator<(const Point& other) const;
-	bool operator>=(const Point& other) const;
-	bool operator<=(const Point& other) const; */
 };
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);

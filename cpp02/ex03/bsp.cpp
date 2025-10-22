@@ -2,7 +2,6 @@
 
 bool check_side(Point const a, Point const b, Point const c, Point const p)
 {
-	//(bX - firtX) * (py - aY) - (bY - aY) * (pX - aX)
 	Fixed inside = (b.getX() - a.getX()) * (c.getY() - a.getY()) - (b.getY() - a.getY()) * (c.getX() - a.getX());
 	Fixed target = (b.getX() - a.getX()) * (p.getY() - a.getY()) - (b.getY() - a.getY()) * (p.getX() - a.getX());
 	if (target == 0)
@@ -16,8 +15,6 @@ bool check_side(Point const a, Point const b, Point const c, Point const p)
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	/* if ((point == a) || (point == b) || (point == c))
-		return false; */
 	if (!check_side(a, b, c, point))
 		return false;
 	if (!check_side(b, c, a, point))
