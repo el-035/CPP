@@ -12,9 +12,9 @@ int main( void ) {
 	
 	std::cout << b << std::endl;
 	
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl<< std::endl;
 	
-	return 0;
+	//return 0;
 
 
 	{//COMPARISONS
@@ -91,12 +91,37 @@ int main( void ) {
 		std::cout << "a-- " << a-- << std::endl;
 		std::cout << "b-- " << b-- << std::endl;
 		std::cout << std::endl;
+		
+		std::cout << "a = " << a.toInt() << std::endl << "b = " << b.toFloat() << std::endl; 
+
+		std::cout << std::endl;
 		std::cout << "++a " << ++a << std::endl;
 		std::cout << "++b " << ++b << std::endl;
 		std::cout << "--a " << --a << std::endl;
 		std::cout << "--b " << --b << std::endl;
 	}
 
-	
+	{ //MIN MAX
+		std::cout << std::endl << "MIN / MAX" << std::endl;
+		Fixed a(10);
+		Fixed b(15.15f);
+		Fixed c(15.15f);
+		std::cout << "a = " << a.toInt() << std::endl << "b = " << b.toFloat() << std::endl << "c = " << c.toFloat() << std::endl; 
+		std::cout << "max a b " << Fixed::max(a, b) << std::endl;
+		std::cout << "min a b " << Fixed::min(a, b) << std::endl;
+		std::cout << "min b c " << Fixed::min(b, c) << std::endl;
 
-}	
+	}
+		{ //MIN MAX --CONST
+		std::cout << std::endl << "MIN / MAX" << std::endl;
+		const Fixed a(10);
+		const Fixed b(15.15f);
+		const Fixed c(15.15f);
+		std::cout << "a = " << a.toInt() << std::endl << "b = " << b.toFloat() << std::endl << "c = " << c.toFloat() << std::endl; 
+		std::cout << "max a b " << Fixed::max(a, b) << std::endl;
+		std::cout << "min a b " << Fixed::min(a, b) << std::endl;
+		std::cout << "min b c " << Fixed::min(b, c) << std::endl;
+
+	}
+
+}

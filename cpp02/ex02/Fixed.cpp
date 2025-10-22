@@ -146,27 +146,26 @@ Fixed Fixed::operator/(const Fixed& other) const
 	return(div);
 }
 
-Fixed& Fixed::operator++()
+Fixed& Fixed::operator++() //pre
 {
 	value += 1;
 	return(*this);
-
 }
 
-Fixed& Fixed::operator--()
+Fixed& Fixed::operator--() //pre
 {
 	value -= 1;
 	return(*this);
 }
 
-Fixed Fixed::operator++(int)
+Fixed Fixed::operator++(int) //post
 {
 	Fixed temp = *this;
 	value += 1;
 	return(temp);
 }
 
-Fixed Fixed::operator--(int)
+Fixed Fixed::operator--(int) //post
 {
 	Fixed temp = *this;
 	value -= 1;
@@ -175,28 +174,28 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed& first, Fixed& second)
 {
-	if (first.value < second.value)
+	if (first.value <= second.value)
 		return (first);
 	return (second);
 }
 
 Fixed& Fixed::max(Fixed& first, Fixed& second)
 {
-	if (first.value > second.value)
+	if (first.value >= second.value)
 		return (first);
 	return (second);
 }
 
 const Fixed& Fixed::min(const Fixed& first, const Fixed& second)
 {
-	if (first.value < second.value)
+	if (first.value <= second.value)
 		return (first);
 	return (second);
 }
 
 const Fixed& Fixed::max(const Fixed& first, const Fixed& second)
 {
-	if (first.value > second.value)
+	if (first.value >= second.value)
 		return (first);
 	return (second);
 }
