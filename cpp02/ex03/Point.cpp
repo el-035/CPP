@@ -8,26 +8,18 @@
 		return false;
 	return true;
 } */
-Point::Point()
-{
+Point::Point() : x(), y() {}
 
-}
-Point::Point(const float x, const float y)
-{
+Point::Point(const float x, const float y) : x(x), y(y) {}
 
-}
-Point::Point(const Point& other)
-{
+Point::Point(const Point& other)  : x(other.x), y(other.y) {}
 
-}
 Point& Point::operator=(const Point& other)
-{
-
+{		//?
+	(void)other;
+	return *this;
 }
-Point::~Point()
-{
-
-}
+Point::~Point() {}
 
 Fixed Point::getX(void) const
 {
