@@ -78,14 +78,14 @@ int main( void ) {
 		Fixed res = a / b;
 		std::cout << "a / b = " << res.getRawBits() << std::endl;
 
-		std::cout << "a / b = " << res.toFloat() << std::endl;
+		std::cout << "a / b = " << res/* .toFloat() */ << std::endl;
 	}
 
 	{//INCREMENT DECREMENT
 		std::cout << std::endl << "INCREMENT / DECREMENT" << std::endl;
 		Fixed a(10);
 		Fixed b(15.15f);
-		std::cout << "a = " << a.toInt() << std::endl << "b = " << b.toFloat() << std::endl; 
+		std::cout << "a = " << a/* .toInt() */ << std::endl << "b = " << b.toFloat() << std::endl; 
 		std::cout << "a++ " << a++ << std::endl;
 		std::cout << "b++ " << b++ << std::endl;
 		std::cout << "a-- " << a-- << std::endl;
