@@ -1,7 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() /* : hitPoints(10), energyPoints(10), attackDamage(0)  */
-{
+ClapTrap::ClapTrap() : name("Nameless"), hitPoints(10), energyPoints(10), attackDamage(0) {
 	std::cout << "Default constructor called!" << std::endl;
 }
 
@@ -21,15 +20,16 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->name = other.name;
-	this->hitPoints = other.hitPoints;
-	this->energyPoints = other.energyPoints;
-	this->attackDamage = other.attackDamage;
+	if (this != &other){
+		this->name = other.name;
+		this->hitPoints = other.hitPoints;
+		this->energyPoints = other.energyPoints;
+		this->attackDamage = other.attackDamage;
+	}
 	return (*this);
 }
 
-ClapTrap::~ClapTrap()
-{
+ClapTrap::~ClapTrap(){
 	std::cout << "Destructor called!" << std::endl;
 }
 
@@ -46,6 +46,7 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	//need more checks here
+	
 	this->hitPoints -= amount;
 	std::cout << "ClapTrap " << name << " was attacked! " << name << " lost " << amount << " hit points!" << std::endl;
 }

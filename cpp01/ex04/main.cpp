@@ -27,15 +27,16 @@ bool CheckInput(std::string &filename, std::string &s1)
 
 void replaceStr(std::string& line, std::string& s1, std::string& s2)
 {
-	size_t pos;
+	size_t pos = 0;
 	std::string newLine = line;
 
 	while(true){
-		pos = line.find(s1);
+		pos = line.find(s1, pos);
 		if (pos == std::string::npos)
 			break;
 		newLine = line.substr(0, pos) + s2 + line.substr(pos + s1.size());
 		line = newLine;
+		pos = pos + s2.size();
 	}
 }
 
