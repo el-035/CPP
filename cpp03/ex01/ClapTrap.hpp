@@ -2,7 +2,7 @@
 
 #include<iostream>
 
-class ClapTrap{
+class ClapTrap{		//add virtual???
 	protected:
 	std::string name;
 	unsigned int hitPoints;

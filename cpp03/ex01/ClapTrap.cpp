@@ -1,16 +1,16 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : name("Nameless"), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap default constructor called!" << std::endl;
+	std::cout << "Default constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-	std::cout << "ClapTrap constructor called!" << std::endl;
+	std::cout << "Constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "ClapTrap copy constructor called!" << std::endl;
+	std::cout << "Copy constructor called!" << std::endl;
 	this->name = other.name;
 	this->hitPoints = other.hitPoints;
 	this->energyPoints = other.energyPoints;
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "ClapTrap copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other){
 		this->name = other.name;
 		this->hitPoints = other.hitPoints;
@@ -30,7 +30,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap destructor called!" << std::endl;
+	std::cout << "Destructor called!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -45,20 +45,27 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	std::cout << name << " has been attacked, ";
+	if (hitPoints == 0)
+	{
+		std::cout << "but " << name << " is already dead *_* " << std::endl;
+		return ;
+	}
 	if (amount <= hitPoints)
 		hitPoints -= amount;
 	else
 	{
-		amount = hitPoints; // or not
+		amount = hitPoints;
 		hitPoints = 0;
 	}
-	std::cout << name << " was attacked! " << name << " lost " << amount << " hit points!" << std::endl;
+	std::cout << name << " lost " << amount << " hit points!" << std::endl;
+
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->energyPoints == 0 || this->hitPoints == 0){
-		std::cout << name << "does not have enough points to be repaired!" << std::endl;
+		std::cout << name << " does not have enough points to be repaired!" << std::endl;
 		return ;
 	}
 	this->energyPoints--;

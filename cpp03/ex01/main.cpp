@@ -15,11 +15,7 @@ int main(void)
 	robot.printPoints();
 	std::cout << std::endl;
 
-	robot.attack("Human");
-	robot.printPoints();
-	std::cout << std::endl;
-
-	robot.takeDamage(7);
+	robot.takeDamage(70);
 	robot.printPoints();
 	std::cout << std::endl;
 
@@ -27,6 +23,6 @@ int main(void)
 	robot.printPoints();
 	std::cout << std::endl;
 
-	robot.takeDamage(7);
+	robot.takeDamage(35);
 	robot.printPoints();
 }

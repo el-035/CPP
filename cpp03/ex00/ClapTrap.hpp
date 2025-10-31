@@ -10,11 +10,13 @@ class ClapTrap{
 
 	public:
 	ClapTrap();
+	//ClapTrap(std::string name = "Nameless");
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);
 	~ClapTrap();
 
 	ClapTrap(std::string name);
+
 
 	void printPoints(void);
 	
