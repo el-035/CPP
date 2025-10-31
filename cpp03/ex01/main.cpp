@@ -1,32 +1,32 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap elf("Elf");
-/* 	ClapTrap human(elf);
-	ClapTrap rosa=human;
-	
-	human.takeDamage(9);
-	human.printPoints();
+	ScavTrap robot("Robot");
 
-	rosa.takeDamage(9);
-	rosa.printPoints(); */
+	std::cout << std::endl;
+	robot.attack("Human");
+	robot.printPoints();
 
-	elf.attack("Human");
-	elf.printPoints();
+	robot.guardGate();
+	std::cout << std::endl;
 
-	elf.beRepaired(5);
-	elf.printPoints();
+	robot.beRepaired(5);
+	robot.printPoints();
+	std::cout << std::endl;
 
-	elf.attack("Human");
-	elf.printPoints();
+	robot.attack("Human");
+	robot.printPoints();
+	std::cout << std::endl;
 
-	elf.takeDamage(7);
-	elf.printPoints();
+	robot.takeDamage(7);
+	robot.printPoints();
+	std::cout << std::endl;
 
-	elf.attack("Human");
-	elf.printPoints();
+	robot.attack("Human");
+	robot.printPoints();
+	std::cout << std::endl;
 
-	elf.takeDamage(7);
-	elf.printPoints();
+	robot.takeDamage(7);
+	robot.printPoints();
 }
