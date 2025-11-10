@@ -3,6 +3,11 @@
 int main(void)
 {
 	ClapTrap elf("Elf");
+	elf.printPoints();
+
+	ClapTrap human("human");
+	human = elf;
+	elf.printPoints();
 
 	elf.attack("Human");
 

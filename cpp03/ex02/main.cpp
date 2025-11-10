@@ -4,10 +4,10 @@ int main(void)
 {
 	FragTrap frog("Frog");
 	FragTrap nameless;
-/* 	FragTrap jj = frog;
+	FragTrap jj(frog);
 
 	jj.highFiveguys();
-	std::cout << std::endl; */
+	std::cout << std::endl;
 
 	std::cout << std::endl;
 	nameless.attack("Human");

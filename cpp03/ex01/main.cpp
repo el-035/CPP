@@ -3,7 +3,10 @@
 int main(void)
 {
 	ScavTrap robot("Robot");
-	ScavTrap nameless;
+	ScavTrap nameless(robot);
+//	nameless = robot;
+	nameless.printPoints();
+
 
 	std::cout << std::endl;
 	nameless.attack("Human");
