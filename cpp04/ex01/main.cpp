@@ -2,6 +2,40 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
+
+/* int main(void){
+	Animal* tier[4];
+
+	for(int i = 0; i < 4; i++){
+		if (i < 2)
+			tier[i] = new Dog();
+		else
+			tier[i] = new Cat();
+	}
+
+	for (int i = 0; i < 4; i++)
+		delete tier[i];
+} */
+
+/* int main (void){
+	Dog a;
+	Dog b = a;
+
+	b.getBrain()->setIdeas(0, "hola");
+
+	std::cout << a.getBrain()->getideas(0) << std::endl;
+} */
+
+int main()
+{
+const Animal* j = new Dog();
+const Animal* i = new Cat();
+delete j;//should not create a leak
+delete i;
+
+return 0;
+}
+
 /* int main (void)
 {
 	Animal one;
@@ -43,10 +77,10 @@
 	Dog cagna(gina);
 	std::cout << cagna.getType() << std::endl;
 	cagna.makeSound();
-} */
+}
+ */
 
-/* 
-int main()
+/* int main()
 {
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
