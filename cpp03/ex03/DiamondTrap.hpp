@@ -5,8 +5,8 @@
 
 class DiamondTrap : public ScavTrap, public FragTrap {
 	std::string name;
-
 	void setVar(std::string name);
+
 	public:
 	DiamondTrap();
 	DiamondTrap(const DiamondTrap& other);
