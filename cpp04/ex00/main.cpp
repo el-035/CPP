@@ -64,8 +64,18 @@ int main()
 {
 	const WrongAnimal* meta = new WrongAnimal();
 	const WrongAnimal* i = new WrongCat();
-	std::cout << i->getType() << " " << std::endl;
+	const WrongCat* j = new WrongCat();
+	std::cout << std::endl;
+	std::cout << i->getType() << ": ";
 	i->makeSound();
+	std::cout << j->getType() << ": ";
+	j->makeSound();
+	std::cout << meta->getType() << ": ";
 	meta->makeSound();
 
+	std::cout << std::endl;
+
+	delete meta;
+	delete i;
+	delete j;
 } */

@@ -34,7 +34,7 @@ int main (void){ //deep copies
 	b = cane;
 } */
 
-/* int main(void){
+/* int main(void){		//to test if animal destructor wasnt virtual
 	Animal* tier[4];
 
 	for(int i = 0; i < 4; i++){
@@ -49,8 +49,8 @@ int main (void){ //deep copies
 		tier[i]->makeSound();
 		delete tier[i];
 	}
-} */
-
+}
+ */
 
 /* int main()	//virtual destructor
 {
