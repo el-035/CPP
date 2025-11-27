@@ -1,7 +1,5 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
-//#include "WrongCat.hpp"
-
 
 
 int main (void){ //deep copies
@@ -35,8 +33,8 @@ int main (void){ //deep copies
 	Dog b;
 	b = cane;
 } */
-/* 
-int main(void){
+
+/* int main(void){
 	Animal* tier[4];
 
 	for(int i = 0; i < 4; i++){
@@ -47,7 +45,10 @@ int main(void){
 	}
 
 	for (int i = 0; i < 4; i++)
+	{
+		tier[i]->makeSound();
 		delete tier[i];
+	}
 } */
 
 

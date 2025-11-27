@@ -25,9 +25,13 @@ Brain::~Brain(){
 }
 
 void Brain::setIdeas(int i, std::string idea){
+	if (i < 0 || i >= 100)
+		return;
 	ideas[i] = idea;
 }
 
 std::string Brain::getideas(int i){
+	if (i < 0 || i >= 100)
+		return ("invalid index provided");
 	return (ideas[i]);
 }
