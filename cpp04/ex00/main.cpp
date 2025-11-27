@@ -43,9 +43,9 @@
 	Dog cagna(gina);
 	std::cout << cagna.getType() << std::endl;
 	cagna.makeSound();
-} */
+}
+ */
 
-/* 
 int main()
 {
 	const Animal* meta = new Animal();
@@ -56,9 +56,11 @@ int main()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-
+	delete meta;
+	delete j;
+	delete i;
 }
-int main()
+/* int main()
 {
 	const WrongAnimal* meta = new WrongAnimal();
 	const WrongAnimal* i = new WrongCat();
