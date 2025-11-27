@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include<sstream>
 
 class Bureaucrat{
 	const std::string name;
@@ -10,7 +11,7 @@ class Bureaucrat{
 	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat& operator=(Bureaucrat& other);
+	Bureaucrat& operator=(const Bureaucrat& other);
 	~Bureaucrat();
 
 	const std::string& getName() const;

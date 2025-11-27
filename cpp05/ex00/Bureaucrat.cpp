@@ -1,25 +1,42 @@
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150){	//wjat should i set?
+Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(75){	//wjat should i set?
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade){
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& other){
-	//
+
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade){
 }
 
-Bureaucrat& Bureaucrat::operator=(Bureaucrat& other){
-	if (this != &other)
-	{
-		//
-	}
-
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other){
+	(void)other;
+	return (*this);
 }
 
-Bureaucrat::~Bureaucrat(){}
+Bureaucrat::~Bureaucrat(){
+}
 
-// const std::string& getName() const;
-// int getGrade() const;
-// void increment();
-// void decrement();
+const std::string& Bureaucrat::getName() const{
+	return (name);
+}
+
+int Bureaucrat::getGrade() const{
+	return(grade);
+}
+void Bureaucrat::increment(){
+	grade -= 1;
+}
+
+void Bureaucrat::decrement(){
+	grade += 1;
+}
+
+std::ostream& operator<<(std::ostream& output, const Bureaucrat& object){
+	int n = object.getGrade();
+	std::stringstream ss;
+	ss << n;
+	std::string s = object.getName() + ", bureaucrat grade " + ss.str() + ".";
+	output << s;
+	return (output);
+}
