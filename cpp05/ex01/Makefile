@@ -1,15 +1,15 @@
 
 CXX = c++
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 #creates object files from the c files given
-OBJDIR = stuff
+OBJDIR = build
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
-NAME = bureaucrat
+NAME = forms
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
