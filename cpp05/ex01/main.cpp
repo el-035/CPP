@@ -87,16 +87,20 @@ int main (void)
 	try
 	{
 		Bureaucrat j("Juan", 100);
+		Bureaucrat k("Anonym", 50);
+		std::cout << k << std::endl;
 		std::cout << j << std::endl;
 		Form c ("MoreCoffeBreaks", 100, 1);
 		j.signForm(c);
 		std::cout << c << std::endl;
 		j.decrement();
 		std::cout << j << std::endl;
-		Form d ("MoreCiggieBreaks", 100, 1);
+		Form d ("MoreCiggieBreaks", 50, 1);
 		j.signForm(d);
+		k.signForm(d);
+		k.signForm(c);
 		std::cout << c << std::endl;
-
+		std::cout << d << std::endl;
 	}
 	catch(const std::exception& e){
 		std::cout << "Exception: " << e.what() << std::endl;

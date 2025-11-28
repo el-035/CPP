@@ -60,6 +60,14 @@ const char* Form::GradeTooLowException::what() const throw(){
 	return ("Grade too low!");
 }
 
+/* const char* Form::FormNotSigned ::what() const throw(){	
+	return ("Form has not been signed yet!");
+} */
+
+const char* Form::FormAlreadySigned ::what() const throw(){
+	return ("Form has already been signed!");
+}
+
 std::ostream& operator<<(std::ostream& output, const Form& object){
 	std::string sig;
 	if (object.getSig())

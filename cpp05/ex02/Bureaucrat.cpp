@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Anonym Bureaucrat"), grade(150){
 }
@@ -68,13 +68,14 @@ const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return ("Grade too low!");
 }
 
-void Bureaucrat::signForm(Form& carta){
+void Bureaucrat::signForm(AForm& carta){
 	try
 	{
-		if (carta.beSigned(*this))
-			std::cout << this->getName() << " signed " << carta.getName() << std::endl;
-		else
-			throw Form::FormAlreadySigned();
+		//if (carta.beSigned(*this))
+		carta.beSigned(*this);
+		std::cout << this->getName() << " signed " << carta.getName() << std::endl;
+		// else
+		// 	std::cout <<  this->getName() << " couldn't sign " << carta.getName() << " because: Form already signed!" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
