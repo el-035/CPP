@@ -21,15 +21,13 @@ class Form{
 	int getSigGrade() const;
 	int getExeGrade() const;
 
-	void beSigned(const Bureaucrat& lento);
+	bool beSigned(const Bureaucrat& lento);
 
 	class GradeTooHighException : public std::exception{	
-		public:
 		const char* what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception{
-		public:
 		const char* what() const throw();
 	};
 };

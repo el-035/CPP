@@ -40,9 +40,14 @@ int Form::getExeGrade() const{
 	return (exeGrade);
 }
 
-void Form::beSigned(const Bureaucrat& lento){
+bool Form::beSigned(const Bureaucrat& lento){
+	if (sig == true)
+		return false;
 	if (lento.getGrade() <= this->getSigGrade())
+	{
 		sig = true;
+		return (true);
+	}
 	else
 		throw Form::GradeTooLowException();
 }
