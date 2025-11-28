@@ -1,9 +1,15 @@
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(75){	//wjat should i set?
+Bureaucrat::Bureaucrat() : name("Anonym Bureaucrat"), grade(150){	//wjat should i set?
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade){
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	if (grade <= 0)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade){
@@ -26,10 +32,18 @@ int Bureaucrat::getGrade() const{
 }
 void Bureaucrat::increment(){
 	grade -= 1;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	if (grade <= 0)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::decrement(){
 	grade += 1;
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	if (grade <= 0)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& object){
@@ -39,4 +53,12 @@ std::ostream& operator<<(std::ostream& output, const Bureaucrat& object){
 	std::string s = object.getName() + ", bureaucrat grade " + ss.str() + ".";
 	output << s;
 	return (output);
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw(){
+	return ("Grade too high!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
+	return ("Grade too low!");
 }
