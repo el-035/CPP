@@ -28,7 +28,8 @@ int main (void)
 		ano.increment();
 		ano.signForm(a);
 		std::cout << a << std::endl;
-		a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
 	}
 	catch(const std::exception& e)
 	{
@@ -46,12 +47,18 @@ int main (void)
 		ano.increment();
 		ano.signForm(a);
 		std::cout << a << std::endl;
-		a.execute(ano);
-		a.execute(ano);
-		a.execute(ano);
-		a.execute(ano);
-		a.execute(ano);
-		a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
 
 	}
 	catch(const std::exception& e)
@@ -73,13 +80,37 @@ int main (void)
 		culo.signForm(a);
 		ano.signForm(a);
 		std::cout << a << std::endl;
-		a.execute(ano);
+		ano.executeForm(a);
+		//a.execute(ano);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
+	std::cout << std::endl  << GREEN << "BURO EXECUTION" << STD << std::endl;
+	try
+	{
+		PresidentialPardonForm a("Target");
+		std::cout << a << std::endl;
+		Bureaucrat culo("Culo", 26);
+		Bureaucrat ano("Ano", 4);
+		std::cout << ano << std::endl;
+		std::cout << culo << std::endl;
+
+		culo.signForm(a);
+		culo.increment();
+		culo.signForm(a);
+		ano.signForm(a);
+		std::cout << a << std::endl;
+		culo.executeForm(a);
+		ano.executeForm(a);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 	//int i = 0;
 	
 	// std::cout << std::endl  << GREEN << "TEST " << i++ << STD << std::endl;	// 0

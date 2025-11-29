@@ -37,8 +37,7 @@ class Bureaucrat{
 		const char* what() const throw();
 	};
 
-	//NEW STUFF
-	void executeForm(AForm const & form) const; //return type?
+	void executeForm(AForm const & form) const;
 };
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& object);

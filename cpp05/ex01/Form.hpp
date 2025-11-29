@@ -31,10 +31,6 @@ class Form{
 		const char* what() const throw();
 	};
 
-/* 	class FormNotSigned : public std::exception{	
-		const char* what() const throw();
-	}; */
-
 	class FormAlreadySignedException : public std::exception{
 		const char* what() const throw();
 	};
