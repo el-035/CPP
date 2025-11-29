@@ -14,7 +14,7 @@ class PresidentialPardonForm : public AForm{
 	~PresidentialPardonForm();
 
 	std::string getTarget() const;
-	void execute(Bureaucrat const & executor) const; //return type?
+	void execute(Bureaucrat const & executor) const;
 
 };
 

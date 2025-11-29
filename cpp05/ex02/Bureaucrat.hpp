@@ -5,8 +5,8 @@
 #include<exception>
 //#include"Form.hpp"
 
-#define S_RED "\033[31m"
-#define E_RED "\033[0m"
+#define GREEN "\033[32m"
+#define STD "\033[0m"
 
 
 class AForm;

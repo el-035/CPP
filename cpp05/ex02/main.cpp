@@ -5,9 +5,9 @@
 
 
 int main (void)
-{
+{	
 	{
-		std::cout << S_RED << "TEST CONSTRUCTORS" << E_RED << std::endl;
+		std::cout << GREEN << "TEST CONSTRUCTORS" << STD << std::endl;
 		ShrubberyCreationForm a("Burocrazia");
 		std::cout << "a: " << a << std::endl;
 		ShrubberyCreationForm b = a;
@@ -16,9 +16,73 @@ int main (void)
 		c = a;
 		std::cout << "c: " << c << std::endl;
 	}
+	
+	std::cout << std::endl  << GREEN << "SHRUBBERY EXECUTION" << STD << std::endl;
+	try
+	{
+		ShrubberyCreationForm a("school");
+		std::cout << a << std::endl;
+		Bureaucrat ano("Ano", 146);
+		std::cout << ano << std::endl;
+		ano.signForm(a);
+		ano.increment();
+		ano.signForm(a);
+		std::cout << a << std::endl;
+		a.execute(ano);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl  << GREEN << "ROBOTOMY EXECUTION" << STD << std::endl;
+	try
+	{
+		RobotomyRequestForm a("Target");
+		std::cout << a << std::endl;
+		Bureaucrat ano("Ano", 44);
+		std::cout << ano << std::endl;
+		ano.signForm(a);
+		ano.increment();
+		ano.signForm(a);
+		std::cout << a << std::endl;
+		a.execute(ano);
+		a.execute(ano);
+		a.execute(ano);
+		a.execute(ano);
+		a.execute(ano);
+		a.execute(ano);
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+
+	std::cout << std::endl  << GREEN << "PRESIDEBT EXECUTION" << STD << std::endl;
+	try
+	{
+		PresidentialPardonForm a("Target");
+		std::cout << a << std::endl;
+		Bureaucrat culo("Culo", 26);
+		Bureaucrat ano("Ano", 4);
+		std::cout << ano << std::endl;
+		culo.signForm(a);
+		culo.increment();
+		culo.signForm(a);
+		ano.signForm(a);
+		std::cout << a << std::endl;
+		a.execute(ano);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
 	//int i = 0;
 	
-	// std::cout << S_RED << "TEST " << i++ << E_RED << std::endl;	// 0
+	// std::cout << std::endl  << GREEN << "TEST " << i++ << STD << std::endl;	// 0
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 140);
@@ -36,7 +100,7 @@ int main (void)
 	// }
 	
 
-	// std::cout << std::endl << S_RED << "TEST " << i++ << E_RED << std::endl; //1
+	// std::cout << std::endl << GREEN << "TEST " << i++ << STD << std::endl; //1
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 1);
@@ -52,7 +116,7 @@ int main (void)
 	// }
 	
 
-	// std::cout << std::endl << S_RED << "TEST " << i++ << E_RED << std::endl; //2
+	// std::cout << std::endl << GREEN << "TEST " << i++ << STD << std::endl; //2
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 150);
@@ -65,7 +129,7 @@ int main (void)
 	// }
 
 
-	// std::cout << std::endl << S_RED << "TEST " << i++ << E_RED << std::endl; //3
+	// std::cout << std::endl << GREEN << "TEST " << i++ << STD << std::endl; //3
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 150);
@@ -78,7 +142,7 @@ int main (void)
 	// }
 
 
-	// std::cout << std::endl << S_RED << "TEST " << i++ << E_RED << std::endl; //4
+	// std::cout << std::endl << GREEN << "TEST " << i++ << STD << std::endl; //4
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 100);
@@ -96,7 +160,7 @@ int main (void)
 	// }
 
 
-	// std::cout << std::endl << S_RED << "TEST " << i++ << E_RED << std::endl; // 5
+	// std::cout << std::endl << GREEN << "TEST " << i++ << STD << std::endl; // 5
 	// try
 	// {
 	// 	Bureaucrat j("Juan", 100);

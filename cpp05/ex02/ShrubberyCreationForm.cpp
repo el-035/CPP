@@ -1,5 +1,7 @@
 #include"ShrubberyCreationForm.hpp"
 #include"Bureaucrat.hpp"
+#include <fstream>
+
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("Unknown"){}
 
@@ -8,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm(
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other.getName(), other.getSigGrade(), other.getExeGrade()), target(other.target) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other){
-	if (this != &other)	//TEST HERE, ARE ALL DATA CORRECT??
+	if (this != &other)
 		this->target = other.target;
 	return (*this);
 }
@@ -16,16 +18,17 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	if (!this->getSig() || executor.getGrade() > this->getExeGrade())
-	/* Creates a file <target>_shrubbery in the working directory and writes ASCII trees
-	inside it. */
-
+	AForm::execute(executor);
+	std::ofstream ShrubberyFile((target + "_shrubbery").c_str(), std::ios::trunc);
+	if (!ShrubberyFile.is_open())
+		throw std::runtime_error("Failed: Could not open file");
+	ShrubberyFile << "   /\\\n  /**\\\n /****\\\n   ||\n   ||\n";
+	std::cout << executor.getName() << " succesfully executed " << this->getName() << std::endl;
 }
 
 std::string ShrubberyCreationForm::getTarget() const{
 	return (target);
 }
-
 
 std::ostream& operator<<(std::ostream& output, const ShrubberyCreationForm& object){
 	std::string sig;

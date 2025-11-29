@@ -23,7 +23,7 @@ class AForm{
 	int getSigGrade() const;
 	int getExeGrade() const;
 
-	void beSigned(const Bureaucrat& lento);
+	bool beSigned(const Bureaucrat& lento);
 
 	class GradeTooHighException : public std::exception{	
 		const char* what() const throw();
@@ -33,11 +33,11 @@ class AForm{
 		const char* what() const throw();
 	};
 
-	class FormNotSigned : public std::exception{	
+	class FormNotSignedException : public std::exception{	
 		const char* what() const throw();
 	};
 
-	class FormAlreadySigned : public std::exception{
+	class FormAlreadySignedException : public std::exception{
 		const char* what() const throw();
 	};
 

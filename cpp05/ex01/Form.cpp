@@ -64,7 +64,7 @@ const char* Form::GradeTooLowException::what() const throw(){
 	return ("Form has not been signed yet!");
 } */
 
-const char* Form::FormAlreadySigned ::what() const throw(){
+const char* Form::FormAlreadySignedException ::what() const throw(){
 	return ("Form has already been signed!");
 }
 

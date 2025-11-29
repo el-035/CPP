@@ -1,4 +1,6 @@
 #include"RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("Unknown") {}
 
@@ -17,8 +19,12 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-	//do smt
-	(void)executor;
+	AForm::execute(executor);
+	std::cout << "***...Drilling noise...***" << std::endl;
+	if (rand() % 2)
+		std::cout << getTarget() << " has been successfully robotomized!" << std::endl;
+	else
+		std::cout << " Robotomy failed!" << std::endl;
 
 }
 
@@ -41,8 +47,4 @@ std::ostream& operator<<(std::ostream& output, const RobotomyRequestForm& object
 	std::string msg = object.getName() + sig + ss.str() + ". Grade to execute: " + ee.str() + ". Target: " + object.getTarget();
 	output << msg;
 	return (output);
-}
-
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-
 }
