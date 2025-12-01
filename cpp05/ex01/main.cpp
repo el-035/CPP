@@ -75,7 +75,7 @@ int main (void)
 		j.decrement();
 		Form d ("MoreCiggieBreaks", 100, 1);
 		j.signForm(d);
-		std::cout << c << std::endl;
+		std::cout << d << std::endl;
 		std::cout << j << std::endl;
 	}
 	catch(const std::exception& e){

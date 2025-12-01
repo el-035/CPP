@@ -8,7 +8,7 @@ OBJDIR = build
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 NAME = forms
 
 # all compiles all the c files into o files and archive them into libft.a

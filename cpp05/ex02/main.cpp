@@ -2,10 +2,12 @@
 #include"PresidentialPardonForm.hpp"
 #include"RobotomyRequestForm.hpp"
 #include"ShrubberyCreationForm.hpp"
-
+#include <cstdlib>
+#include <ctime>
 
 int main (void)
 {	
+	std::srand(std::time(NULL));
 	{
 		std::cout << GREEN << "TEST CONSTRUCTORS" << STD << std::endl;
 		ShrubberyCreationForm a("Burocrazia");
@@ -29,7 +31,23 @@ int main (void)
 		ano.signForm(a);
 		std::cout << a << std::endl;
 		ano.executeForm(a);
-		//a.execute(ano);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl  << GREEN << "SHRUBBERY EXECUTION" << STD << std::endl;
+	try
+	{
+		ShrubberyCreationForm a("school");
+		std::cout << a << std::endl;
+		Bureaucrat ano("Ano", 14);
+		std::cout << ano << std::endl;
+		ano.signForm(a);
+		ano.increment();
+		std::cout << a << std::endl;
+		ano.executeForm(a);
 	}
 	catch(const std::exception& e)
 	{
@@ -48,18 +66,11 @@ int main (void)
 		ano.signForm(a);
 		std::cout << a << std::endl;
 		ano.executeForm(a);
-		//a.execute(ano);
 		ano.executeForm(a);
-		//a.execute(ano);
 		ano.executeForm(a);
-		//a.execute(ano);
 		ano.executeForm(a);
-		//a.execute(ano);
 		ano.executeForm(a);
-		//a.execute(ano);
 		ano.executeForm(a);
-		//a.execute(ano);
-
 	}
 	catch(const std::exception& e)
 	{
@@ -81,7 +92,6 @@ int main (void)
 		ano.signForm(a);
 		std::cout << a << std::endl;
 		ano.executeForm(a);
-		//a.execute(ano);
 	}
 	catch(const std::exception& e)
 	{
@@ -104,7 +114,7 @@ int main (void)
 		ano.signForm(a);
 		std::cout << a << std::endl;
 		culo.executeForm(a);
-		ano.executeForm(a);
+		ano.executeForm(a);	std::srand(std::time(NULL));
 
 	}
 	catch(const std::exception& e)

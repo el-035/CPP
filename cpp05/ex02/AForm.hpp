@@ -41,13 +41,7 @@ class AForm{
 		const char* what() const throw();
 	};
 
-	//NEW STUFF
-	virtual void execute(Bureaucrat const & executor) const  = 0; //return type?
-
-	/*  implement a function to execute the form’s action in the concrete
-	classes. You must check that the form is signed and that the grade of 
-	the bureaucrat attempting to execute the form is high enough. 
-	Otherwise, throw an appropriate exception */
+	virtual void execute(Bureaucrat const & executor) const  = 0;
 };
 
 std::ostream& operator<<(std::ostream& output, const AForm& object);
