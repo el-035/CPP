@@ -1,7 +1,6 @@
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Anonym Bureaucrat"), grade(150){	//wjat should i set?
-}
+Bureaucrat::Bureaucrat() : name("Anonym Bureaucrat"), grade(150){}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
 	if (grade > 150)

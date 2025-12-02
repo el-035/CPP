@@ -1,13 +1,8 @@
 #pragma once
 
-#include<iostream>
 #include<stdint.h>
+#include"Data.hpp"
 
-struct Data{
-	int i;
-	int j;
-	std::string s;
-};
 
 class Serializer{
 	Serializer();
