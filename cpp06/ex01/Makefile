@@ -1,15 +1,15 @@
 
 CXX = c++
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serialize.cpp
 
 #creates object files from the c files given
-OBJDIR = build
+OBJDIR = stuff
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
-CXXFLAGS = #-Wall -Wextra -Werror -std=c++98 -MMD -g
-NAME = convert
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
+NAME = serializer
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
