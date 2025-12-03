@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef SER
+#define SER
+
 #include<stdint.h>
 #include"Data.hpp"
 
@@ -15,3 +18,4 @@ class Serializer{
 	static Data* deserialize(uintptr_t raw);
 };
 
+#endif

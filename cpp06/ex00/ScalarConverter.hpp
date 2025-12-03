@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef SCALAR
+#define SCALAR
+
 #include<iostream>
 #include <cstdlib>
 #include <iomanip>
@@ -42,3 +45,5 @@ class ScalarConverter{
 	public:
 	static void convert(const std::string& s);
 };
+
+#endif

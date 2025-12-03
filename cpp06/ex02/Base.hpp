@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef BASE
+#define BASE
+
 #include<iostream>
 
 class Base{
@@ -10,3 +13,5 @@ class Base{
 Base * generate(void);
 void identify(Base* p);
 void identify(Base& p);
+
+#endif

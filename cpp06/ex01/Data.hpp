@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef DATA
+#define DATA
+
 #include<iostream>
 
 struct Data{
@@ -7,3 +10,5 @@ struct Data{
 	int j;
 	std::string s;
 };
+
+#endif
