@@ -11,18 +11,24 @@ Base::~Base() {}
 Base * generate(void){
 	int r = rand() % 3;
 
-	Base *base;
+	Base *base = NULL;
 
 	if (r == 0)
+	{
+		std::cout << "Generated type A" << std::endl;
 		base = new A();
+	}
 	else if (r == 1)
+	{
+		std::cout << "Generated type B" << std::endl;
 		base = new B();
+	}
 	else if (r == 2)
+	{
+		std::cout << "Generated type C" << std::endl;
 		base = new C();
-	/* std::cout << r << std::endl; */
+	}
 	return base;
-	/* It randomly instantiates A, B, or C and returns the instance as a Base pointer. Feel free
-to use anything you like for the random choice implementation. */
 }
 
 void identify(Base* p){
@@ -41,31 +47,37 @@ void identify(Base* p){
 }
 
 void identify(Base& p){
+	A a;
+	B b;
+	C c;
 	try{
-		dynamic_cast<A&>(p);
-		std::cout << "Type: A" << std::endl;
+		a = dynamic_cast<A&>(p);
+		std::cout << "Type: A	" << std::endl;
 		return ;
 	}
 	catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+		(void) e;
+	//	std::cout << e.what() << std::endl;
 	}
 
 
 	try{
-		dynamic_cast<B&>(p);
-		std::cout << "Type: B" << std::endl;
+		b = dynamic_cast<B&>(p);
+		std::cout << "Type: B	" << std::endl;
 		return ;
 	}
 	catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+		(void) e;
+		//std::cout << e.what() << std::endl;
 	}
 
 
 	try{
-		dynamic_cast<C&>(p);
-		std::cout << "Type: C" << std::endl;
+		c = dynamic_cast<C&>(p);
+		std::cout << "Type: C	" << std::endl;
 	}
 	catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+		(void) e;
+		//std::cout << e.what() << std::endl;
 	}
 }

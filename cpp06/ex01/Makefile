@@ -4,7 +4,7 @@ CXX = c++
 SRC = main.cpp Serialize.cpp
 
 #creates object files from the c files given
-OBJDIR = stuff
+OBJDIR = build
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 

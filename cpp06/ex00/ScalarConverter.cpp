@@ -164,7 +164,7 @@ float ScalarConverter::toFloat(int *type, const std::string& s){
 double ScalarConverter::toDouble(int *type, const std::string& s){
 	float f;
 	double d;
-
+	
 	if (*type == FLOAT)
 	{
 		f = strtof(s.c_str(), NULL);
@@ -220,7 +220,7 @@ void ScalarConverter::printChar(int type, const std::string& s){
 	else
 	{
 		c = n;
-		if ((n <= 0 && n < 32 )|| n == 127)
+		if ((n >= 0 && n < 32 )|| n == 127)
 			std::cout << "Non displayable" << std::endl;
 		else
 			std::cout << "'" << c << "'" << std::endl;
@@ -280,7 +280,7 @@ void ScalarConverter::printDouble(int type, const std::string& s){
 	if (type == IMP)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << std::fixed /* << std::setprecision(1) */ << n << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << n << std::endl;
 }
 
 int ScalarConverter::findType(const std::string& s){
