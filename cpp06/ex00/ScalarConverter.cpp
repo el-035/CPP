@@ -92,6 +92,13 @@ bool ScalarConverter::isDouble(const std::string& s)
 		if (cut[i] != '.' && !isdigit(cut[i]))
 			return false;
 	}
+	size_t pos = s.find('.');
+	if (pos != std::string::npos)
+	{
+		size_t digits = s.length() - pos - 1;
+		if (digits > 17)
+			return false;
+	}
 	return true;
 }
 

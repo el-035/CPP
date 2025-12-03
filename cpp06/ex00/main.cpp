@@ -84,6 +84,16 @@ int main (void)
 	ScalarConverter::convert(cv);
 	std::cout << std::endl;
 
+	cv = "1.111111111111111111";
+	std::cout << "convert: " << cv << std::endl;
+	ScalarConverter::convert(cv);
+	std::cout << std::endl;
+
+	cv = "1.11111111111111111";
+	std::cout << "convert: " << cv << std::endl;
+	ScalarConverter::convert(cv);
+	std::cout << std::endl;
+
 }
 /* int main(int argc, char **argv){
 	if (argc != 2)
