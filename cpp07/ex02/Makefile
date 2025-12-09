@@ -9,7 +9,7 @@ OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
-NAME = iter
+NAME = array
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
