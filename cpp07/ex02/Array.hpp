@@ -19,6 +19,8 @@ class Array{
 	~Array();
 
 	T& operator[](unsigned int n);
+	const T& operator[](unsigned int n) const;
+
 
 	unsigned int size() const;
 

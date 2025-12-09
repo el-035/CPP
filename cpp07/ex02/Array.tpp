@@ -16,7 +16,7 @@ template <typename T>
 Array<T>& Array<T>::operator=(const Array& other){
 	if (this != &other){
 		delete[] arr;
-		s = other.size();
+		s = other.size;
 		arr = new T[s];
 		for (unsigned int i = 0; i < s; i++)
 			arr[i] = other.arr[i];
@@ -32,7 +32,15 @@ Array<T>::~Array(){
 template <typename T>
 T& Array<T>::operator[](unsigned int n){
 	if (n >= s)
-		throw OutOfRange(/* "Index out of range!" */);
+		throw OutOfRange();
+	else
+		return (arr[n]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int n) const{
+	if (n >= s)
+		throw OutOfRange();
 	else
 		return (arr[n]);
 }
