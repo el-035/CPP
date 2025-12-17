@@ -6,8 +6,8 @@ const char* NotFound::what() const throw(){
 
 template<typename T>
 typename T::const_iterator easyfind(const T& t, int n){
-	for (typename T::const_iterator i = t.begin(); i != t.end(); ++i)
-		if (*i == n)
-			return (i);
-	throw NotFound();
+	typename T::const_iterator i = std::find(t.begin(), t.end(), n);
+	if (i == t.end())
+		throw NotFound();
+	return i;
 }

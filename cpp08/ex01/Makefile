@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
 #creates object files from the c files given
 OBJDIR = build
@@ -9,7 +9,7 @@ OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
-NAME = easyfind
+NAME = span
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
