@@ -9,7 +9,7 @@ OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
-NAME = easyfind
+NAME = easyFind
 
 # all compiles all the c files into o files and archive them into libft.a
 all: $(NAME)
@@ -35,5 +35,8 @@ fclean: clean
 
 #to rebuild the whole project after cleaning everything
 re: fclean all
+
+run: all
+	./$(NAME)
 
 .PHONY: all clean re fclean

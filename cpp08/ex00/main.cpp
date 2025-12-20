@@ -1,4 +1,4 @@
-#include"easyfind.hpp"
+#include"easyFind.hpp"
 #include<vector>
 #include<list>
 
@@ -8,12 +8,14 @@ int main(void){
 	std::vector<int> test(arr, arr + 8);
 	std::list<int> lis(arr, arr + 8);
 	try{
-		std::vector<int>::const_iterator i = easyfind(test, 6);
+		std::vector<int>::const_iterator i = easyFind(test, 6);
 		std::cout << *i << std::endl;
-		std::list<int>::const_iterator it = easyfind(lis, 1);
+		std::list<int>::const_iterator it = easyFind(lis, 1);
 		std::cout << *it << std::endl;
-		it = easyfind(lis, 66);
+		it = easyFind(lis, 3);
 		std::cout << *it << std::endl;
+		i = easyFind(test, 66);
+		std::cout << *i << std::endl;
 	}
 	catch(const std::exception& e){
 		std::cout << e.what() << std::endl;

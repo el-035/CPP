@@ -10,6 +10,6 @@ class NotFound : public std::exception{
 	const char* what() const throw();
 };
 
-#include"easyfind.tpp"
+#include"easyFind.tpp"
 
 #endif

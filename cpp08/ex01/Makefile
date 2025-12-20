@@ -36,4 +36,7 @@ fclean: clean
 #to rebuild the whole project after cleaning everything
 re: fclean all
 
+run: all
+	./$(NAME)
+
 .PHONY: all clean re fclean

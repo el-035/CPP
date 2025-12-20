@@ -1,5 +1,6 @@
 #include"MutantStack.hpp"
 #include<list>
+#include<algorithm>
 
 /* int main()
 {
@@ -27,7 +28,7 @@
 	return 0;
 } */
 
-int main()
+/* int main()
 {
 	std::list<int> mstack;
 	mstack.push_back(5);
@@ -51,4 +52,30 @@ int main()
 	}
 	std::list<int> s(mstack);
 	return 0;
+} */
+
+int main(void){
+	MutantStack<std::string> test;
+
+	test.push("wtf");
+	test.push("culo");
+	test.push("hola");
+	test.push("como");
+	test.push("42");
+	test.push("stupid");
+	test.push("tests");
+
+	//print in order
+	for (MutantStack<std::string>::iterator it = test.begin(); it != test.end(); ++it)
+		std::cout << *it << std::endl;
+	//sort and print in alpha order
+	std::cout << std::endl;
+	std::sort(test.begin(), test.end());
+	for (MutantStack<std::string>::iterator it = test.begin(); it != test.end(); ++it)
+		std::cout << *it << std::endl;
+	std::cout << std::endl;
+	//sort and print in reverse order
+	std::reverse(test.begin(), test.end());
+	for (MutantStack<std::string>::iterator it = test.begin(); it != test.end(); ++it)
+		std::cout << *it << std::endl;
 }

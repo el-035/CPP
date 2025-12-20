@@ -6,7 +6,7 @@ Span::Span(unsigned int n) : N(n) {
 	numb.reserve(n);
 }
 
-Span::Span(const Span& other) : N(other.getMaxSize()), numb(other.numb){}
+Span::Span(const Span& other) : N(other.N), numb(other.numb){}
 
 Span& Span::operator=(const Span& other){
 	if (this != &other){
@@ -17,10 +17,6 @@ Span& Span::operator=(const Span& other){
 }
 
 Span::~Span(){}
-
-unsigned int Span::getMaxSize() const{
-	return (N);
-}
 
 void Span::addNumber(int num){
 	try{
@@ -38,12 +34,12 @@ int Span::shortestSpan(){
 		throw SpanNotFound();
 	std::vector<int> temp(numb);
 	std::sort(temp.begin(), temp.end());
-	int prev = this->longestSpan();
+	int shortest = this->longestSpan();
 	for(std::vector<int>::const_iterator it = temp.begin(); it != (temp.end() - 1); it++){
 		int diff = *(it + 1) - *it;
-		prev = std::min(diff, prev);
+		shortest = std::min(diff, shortest);
 	}
-	return (prev);
+	return (shortest);
 }
 
 int Span::longestSpan(){

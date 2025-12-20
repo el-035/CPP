@@ -18,7 +18,6 @@ class Span{
 	Span& operator=(const Span& other);
 	~Span();
 
-	unsigned int getMaxSize() const;
 	void addNumber(int num);
 	int shortestSpan();
 	int longestSpan();
