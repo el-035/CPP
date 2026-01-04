@@ -54,6 +54,11 @@ bool validateValue(std::string& value){
 	}
 	if (dot > 1)
 		return (std::cerr << BAD_FORM << std::endl, false);
+	if (dot == 0){
+		int n = atoi(value.c_str());
+		if (n > 1000)
+			return (std::cerr << BAD_VALUE << std::endl, false);
+	}
 	return true;
 
 }
@@ -118,10 +123,10 @@ int main(int argc, char **argv){
 		return -1;
 	
 	//test print
-	std::map<std::string, double>::const_iterator it;
+/* 	std::map<std::string, double>::const_iterator it;
 	for (it = data.begin(); it != data.end(); ++it){
 		std::cout << it->first << "," << it->second << std::endl;
-	}
+	} */
 
 	//input check line by line
 }
