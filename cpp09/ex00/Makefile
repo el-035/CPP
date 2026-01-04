@@ -4,7 +4,7 @@ CXX = c++
 SRC = main.cpp
 
 #creates object files from the c files given
-OBJDIR = build
+OBJDIR = stuff
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
@@ -37,6 +37,6 @@ fclean: clean
 re: fclean all
 
 run: all
-	./$(NAME)
+	./$(NAME) input
 
 .PHONY: all clean re fclean
