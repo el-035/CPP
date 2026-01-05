@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = main.cpp
+SRC = main.cpp RPN.cpp
 
 #creates object files from the c files given
 OBJDIR = stuff
