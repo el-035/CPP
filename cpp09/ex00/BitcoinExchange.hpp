@@ -16,7 +16,7 @@
 #define ERR_EMPTY "Error: Empty file"
 #define ERR_HEAD "Error: Invalid Header"
 #define BAD_FORM "Error: Bad Format"
-#define BAD_DATE "Error: Wrong Date"
+#define BAD_DATE "Error: Invalid Date"
 #define BAD_VALUE "Error: Invalid Value"
 
 #endif

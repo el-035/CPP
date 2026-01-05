@@ -13,6 +13,14 @@ bool checkInput(char* input){
 	return true;
 }
 
+bool isLeap(int year){
+	if (year % 400 == 0)
+		return true;
+	else if ((year % 4 == 0) && (year % 100 != 0))
+		return true;
+	return false;
+}
+
 bool validateDate(std::string& date){
 	for(int i = 0; i < 10; i++){
 		if ((i == 4 || i == 7) && date[i] != '-')
@@ -22,22 +30,23 @@ bool validateDate(std::string& date){
 		if (!isdigit(date[i]))
 			return (std::cerr << BAD_FORM << std::endl, false);
 	}
+	std::string y = date.substr(0, 4);
+	int year = atoi(y.c_str());
+	if (year < 2009 || year > 2022)
+		return (std::cerr << BAD_DATE << std::endl, false);
 
-	std::string m = date.substr(5, 6);
-
+	std::string m = date.substr(5, 2);
 	int month = atoi(m.c_str());
-//	std::cout << "month" << month << std::endl;
 	if (month > 12 || month == 0)
 		return (std::cerr << BAD_DATE << std::endl, false);
 	
-	std::string d = date.substr(8, 9);
-//	std::cout << "day" << d << std::endl;
-
+	std::string d = date.substr(8, 2);
 	int day = atoi(d.c_str());
-//	std::cout << day << std::endl;
 	if (day > 31 || day == 0)
-		return (std::cerr << BAD_DATE << std::endl, false); //
-	if (month == 2 && day > 29)
+		return (std::cerr << BAD_DATE << std::endl, false);
+	if (month == 2 && isLeap(year) && day > 29)
+		return (std::cerr << BAD_DATE << std::endl, false);
+	else if (month == 2 && !isLeap(year) && day > 28)
 		return (std::cerr << BAD_DATE << std::endl, false);
 	else if ((month == 11 || month == 4 || month == 6 || month == 9) && day > 30)
 		return (std::cerr << BAD_DATE << std::endl, false);
@@ -54,29 +63,33 @@ bool validateValue(std::string& value){
 	}
 	if (dot > 1)
 		return (std::cerr << BAD_FORM << std::endl, false);
-	if (dot == 0){
-		int n = atoi(value.c_str());
-		if (n > 1000)
-			return (std::cerr << BAD_VALUE << std::endl, false);
-	}
-	return true;
+	if (dot == 0 && value.length() > 4)
+		return (std::cerr << BAD_VALUE << std::endl, false);
 
+	float n = atof(value.c_str());
+	if (n > 1000)
+		return (std::cerr << BAD_VALUE << std::endl, false);
+	return true;
 }
 
-bool checkLineFormat(std::string& line){
-	std::string temp;
-	temp = line.substr(0, 10);
-	if (!validateDate(temp))
+bool checkInputFormat(std::string& line){
+	std::string date = line.substr(0, 10);
+	if (!validateDate(date))
 		return false;
-	if (line[10] != ',')
+	
+	std::string sep = line.substr(10, 3);
+	if (sep != " | ")
 		return (std::cerr << BAD_FORM << std::endl, false);
-	temp = line.substr(11);
-	if (!validateValue(temp))
+	
+	std::string value = line.substr(13);
+	if (!validateValue(value))
 		return false;
+
+	std::cout << date << " -> " << value << " = ";
 	return true;
 }
 
-bool mapData(std::map<std::string, double> *data){
+bool mapData(std::map<std::string, float> *data){
 	std::ifstream datafile("data.csv");
 	
 	//file does not exist/cannot be open
@@ -93,40 +106,65 @@ bool mapData(std::map<std::string, double> *data){
 	std::string line;
 	std::getline(datafile, line);
 
-	if (line != "date,exchange_rate")
-		return (std::cerr << ERR_HEAD << std::endl, false);
+/* 	if (line != "date,exchange_rate")
+		return (std::cerr << ERR_HEAD << std::endl, false); */
 	
 	//check rest
 	std::string value;
 	while (std::getline(datafile, line)){
 		//format check
-		if (!checkLineFormat(line))
-			return false;
+		/* if (!checkLineFormat(line))
+			return false; */
 		//map
 		value = line.substr(11);
-		data->insert(std::pair<std::string, double>(line.substr(0, 10), atof(value.c_str())));
+		data->insert(std::pair<std::string, float>(line.substr(0, 10), atof(value.c_str())));
 	}
-
-
 	return true;
 }
 
+void searchDate(std::map<std::string, float> *data, std::string line){
+	std::string date = line.substr(0, 10);
+	std::string value = line.substr(13);
+	float n = atof(value.c_str());
 
-//check without permissions
+	std::map<std::string, float>::const_iterator it = data->find(date);
+	if (it != data->end()){
+		std::cout << it->second * n << std::endl;
+	}
+	else{
+		for(it = data->begin(); it != data->end(); it++){
+			if (date < it->first){
+				it--;
+				std::cout << it->second * n << std::endl;
+				break ;
+			}
+		}
+	}
+}
+
+bool inputValidationSearch(std::map<std::string, float> *data, char *input){
+	std::ifstream file(input);
+	(void)data;
+	std::string line;
+	std::getline(file, line);
+	
+	if (line != "date | value")
+		return (std::cerr << ERR_HEAD << std::endl, false);
+	while(std::getline(file, line)){
+		if (!checkInputFormat(line))
+			continue ;
+		searchDate(data, line);
+	}
+	return true;
+}
+
 int main(int argc, char **argv){
 	if (argc != 2)
 		return (std::cerr << ERR_INPUT << std::endl, -1);
 	if (!checkInput(argv[1]))
 		return (-1);
-	std::map<std::string, double> data;
+	std::map<std::string, float> data;
 	if (!mapData(&data))
 		return -1;
-	
-	//test print
-/* 	std::map<std::string, double>::const_iterator it;
-	for (it = data.begin(); it != data.end(); ++it){
-		std::cout << it->first << "," << it->second << std::endl;
-	} */
-
-	//input check line by line
+	inputValidationSearch(&data, argv[1]);
 }
