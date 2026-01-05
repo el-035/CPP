@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 #creates object files from the c files given
 OBJDIR = stuff
@@ -36,7 +36,10 @@ fclean: clean
 #to rebuild the whole project after cleaning everything
 re: fclean all
 
+val: all
+	valgrind --show-leak-kinds=all --leak-check=full ./$(NAME) input.txt
+
 run: all
 	./$(NAME) input.txt
 
-.PHONY: all clean re fclean
+.PHONY: all clean re fclean run val

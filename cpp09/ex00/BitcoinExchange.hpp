@@ -7,8 +7,17 @@
 #include <fstream>
 #include <map>
 #include <cstdlib>
-//#include <iomanip> //
 
+bool checkInput(char* input);
+bool isLeap(int year);
+
+
+bool validateDate(std::string& date);
+bool validateValue(std::string& value);
+bool checkInputFormat(std::string& line);
+bool mapData(std::map<std::string, float> *data);
+void searchDate(std::map<std::string, float> *data, std::string line);
+bool inputValidationSearch(std::map<std::string, float> *data, char *input);
 
 
 #define ERR_INPUT "Error: Invalid Input"
