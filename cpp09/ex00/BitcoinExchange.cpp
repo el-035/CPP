@@ -1,7 +1,5 @@
 #include"BitcoinExchange.hpp"
 
-
-
 bool validateDate(std::string& date){
 	for(int i = 0; i < 10; i++){
 		if ((i == 4 || i == 7) && date[i] != '-')
