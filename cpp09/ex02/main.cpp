@@ -12,7 +12,7 @@ size_t findJack(bool start){ //starts by returing 3, change double prev to 0 if 
 	size_t j = prev + (2 * doublePrev);
 	doublePrev = prev;
 	prev = j;
-	return j;
+	return j - 1;
 }
 
 bool validateDigit(const std::string& input){ 	//duplicates????
@@ -96,7 +96,9 @@ size_t binSearch(std::vector<int> &v, size_t bSize, size_t maxIndex, int search)
 void mergeInsert(size_t &bSize, std::vector<int> &v){
 	size_t nBlocks = v.size() / bSize;
 	std::cout << "num of blocks: " << nBlocks << std::endl;
-
+	std::cout << "BLOCK SIZE: " << bSize << std::endl;
+	printBlocks(v, bSize);
+	std::cout << std::endl;
 	
 	if (nBlocks > 2){
 		findJack(true);
@@ -116,8 +118,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 				main.insert(main.end(), v.begin() + i, v.begin() + i + bSize);
 			i += bSize;
 		}
-		if (v.begin() != v.end())
-			left.insert(left.end(), v.begin() + i, v.end());
+		left.insert(left.end(), v.begin() + i, v.end());
 
 		v.swap(main);
 		
@@ -128,10 +129,27 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 		std::cout << "LEFT: " << bSize << std::endl;
 		printBlocks(left, bSize);
 		
-
-
 		//do insertion of low into v
+		while(!low.empty()){
+			//find int in low that needs to be compared
+			size_t curIndex = findJack(false);
+			curIndex = curIndex * bSize - 1;
+			if (!low.empty() && curIndex >= low.size())
+				curIndex = low.size() - 1;
+			std::cout << "index of n to be compared " << curIndex << std::endl;
 		
+
+			//FIND RANGE FOR BINARY INSERTION
+				//min starts from bSize always
+				//max is 
+				//low index
+			size_t maxIndex = (((curIndex + 1) / bSize + 1) * bSize) - 1;
+			size_t minIndex = bSize - 1;
+			
+			std::cout << "index of max comp " << maxIndex << std::endl;
+			std::cout << "index of min comp " << minIndex << std::endl;
+			return ;
+		}
 
 
 		//add tmp at the end of v
@@ -174,10 +192,6 @@ bool algOne(char **argv, int argc){
 	//std::cout << bSize << std::endl;
 	//merge vectors
 	bSize /= 2;
-
-	std::cout << "BLOCK SIZE: " << bSize << std::endl;
-	printBlocks(v, bSize);
-	std::cout << std::endl;
 	mergeInsert(bSize, v);
 
 	std::cout << "TOT COMPARISONS: " << comparisons << std::endl;

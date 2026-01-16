@@ -39,7 +39,7 @@ re: fclean all
 #val: all
 #	valgrind --show-leak-kinds=all --leak-check=full ./$(NAME)
 
-#run: all
-#	./$(NAME) 
+run: all
+	./$(NAME)  $$(shuf -i 0-1000 -n $(X))
 
 .PHONY: all clean re fclean #run val
