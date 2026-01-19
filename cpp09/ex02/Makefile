@@ -8,7 +8,7 @@ OBJDIR = stuff
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 DEP = $(OBJ:%.o=%.d)
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g # TODO: delete -g
 NAME = PmergeMe
 
 # all compiles all the c files into o files and archive them into libft.a
@@ -36,10 +36,10 @@ fclean: clean
 #to rebuild the whole project after cleaning everything
 re: fclean all
 
-#val: all
-#	valgrind --show-leak-kinds=all --leak-check=full ./$(NAME)
+val: all
+	valgrind --show-leak-kinds=all --leak-check=full ./$(NAME) $$(shuf -i 0-10000 -n $(X))
 
 run: all
-	./$(NAME)  $$(shuf -i 0-1000 -n $(X))
+	./$(NAME)  $$(shuf -i 0-10000 -n $(X))
 
-.PHONY: all clean re fclean #run val
+.PHONY: all clean re fclean run val
