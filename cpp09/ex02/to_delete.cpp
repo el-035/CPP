@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 
-void printBlocks(const std::vector<int> &v, size_t bSize) // TODO: delete this
+template <typename Container>
+void printBlocks(const Container &v, size_t bSize) // TODO: delete this
 {
 	size_t blockSize = bSize * 2;
 
@@ -19,6 +20,7 @@ void printBlocks(const std::vector<int> &v, size_t bSize) // TODO: delete this
 
 	std::cout << std::endl;
 }
+
 
 void debugPrint(const std::vector<int> &v, const std::vector<int> &low, const std::vector<int> &left, const std::vector<int> &max, size_t bSize){
 	std::cout << "LOW: " << bSize << std::endl;

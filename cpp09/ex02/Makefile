@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = main.cpp PmergeMe.cpp
+SRC = main.cpp vector.cpp helpers.cpp list.cpp #PmergeMe.cpp
 
 #creates object files from the c files given
 OBJDIR = stuff
@@ -40,6 +40,6 @@ val: all
 	valgrind --show-leak-kinds=all --leak-check=full ./$(NAME) $$(shuf -i 0-10000 -n $(X))
 
 run: all
-	./$(NAME)  $$(shuf -i 0-10000 -n $(X))
+	./$(NAME)  $$(shuf -i 0-100 -n $(X))
 
 .PHONY: all clean re fclean run val
