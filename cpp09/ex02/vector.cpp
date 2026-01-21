@@ -38,22 +38,7 @@ void sortPairs(size_t &bSize, std::vector<int> &v){
 	sortPairs(bSize, v);	
 }
 
-size_t binSearch(std::vector<int> &v, size_t bSize, size_t minBlock, size_t maxBlock, int search){
-	while (minBlock < maxBlock){
-		size_t midBlock = (minBlock + maxBlock) / 2;
-		size_t midIndex = (midBlock) * bSize - 1;
-		
-		if (midIndex >= v.size())
-    		midIndex = v.size() - 1;
 
-//		comparisons++;
-		if (search < v[midIndex])
-			maxBlock = midBlock;
-		else
-			minBlock = midBlock + 1;
-	}
-	return (minBlock);
-}
 
 void mergeInsert(size_t &bSize, std::vector<int> &v){
 	size_t nBlocks = v.size() / bSize;
@@ -79,7 +64,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 				main.insert(main.end(), v.begin() + i, v.begin() + i + bSize);
 			else if (block % 2 == 0){
 				low.insert(low.end(), v.begin() + i, v.begin() + i + bSize);
-				if (max.empty())
+				if (max.empty())	//TODO: why this condition
 					max.push_back(lim);
 				else
 					max.push_back(lim);
@@ -107,7 +92,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 
 			while(curBlock > 0){
 				size_t insBlock = binSearch(v, bSize, minBlock, max[curBlock - 1], low[curBlock * bSize - 1]);
-				insBlock -= 1;
+//				insBlock -= 1;
 
 				//INSERT FROM LOW TO MAIN
 				v.insert(v.begin() + (insBlock * bSize), low.begin() +  (curBlock -1) * bSize, low.begin() +  (curBlock - 1) * bSize  + bSize);

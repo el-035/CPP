@@ -74,3 +74,24 @@ bool duplicates(int argc, char **argv){
 	}
 	return false;
 }
+
+template <typename Container>
+size_t binSearch(Container &c, size_t bSize, size_t minBlock, size_t maxBlock, int search){
+	while (minBlock < maxBlock){
+		size_t midBlock = (minBlock + maxBlock) / 2;
+		size_t midIndex = (midBlock) * bSize - 1;
+		
+		if (midIndex >= c.size())
+    		midIndex = c.size() - 1;
+
+//		comparisons++;
+		Container::iterator it = c.begin() 
+		std::advance(it, midIndex);
+		//if (search < c[midIndex])
+		if(search < *it)
+			maxBlock = midBlock;
+		else
+			minBlock = midBlock + 1;
+	}
+	return (minBlock - 1);
+}

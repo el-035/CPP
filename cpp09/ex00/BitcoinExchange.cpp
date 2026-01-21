@@ -85,16 +85,9 @@ bool mapData(std::map<std::string, float> *data){
 	std::string line;
 	std::getline(datafile, line);
 
-/* 	if (line != "date,exchange_rate")
-		return (std::cerr << ERR_HEAD << std::endl, false); */
-	
 	//check rest
 	std::string value;
 	while (std::getline(datafile, line)){
-		//format check
-		/* if (!checkLineFormat(line))
-			return false; */
-		//map
 		value = line.substr(11);
 		data->insert(std::pair<std::string, float>(line.substr(0, 10), atof(value.c_str())));
 	}
@@ -123,7 +116,6 @@ void searchDate(std::map<std::string, float> *data, std::string line){
 
 bool inputValidationSearch(std::map<std::string, float> *data, char *input){
 	std::ifstream file(input);
-	(void)data;
 	std::string line;
 	std::getline(file, line);
 	
