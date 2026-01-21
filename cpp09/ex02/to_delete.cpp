@@ -33,14 +33,7 @@ void debugPrint(const std::vector<int> &v, const std::vector<int> &low, const st
 	printBlocks(max, bSize);
 }
 
-bool is_sorted(std::vector<int>& v){	//TODO: DELETE
 
-	for (size_t i = 0; i + 1 < v.size(); i++){
-		if (v[i] > v[i + 1])
-			return false;
-	}
-	return true;
-}
 
 int F(int n)	//TODO: DELETE
 {

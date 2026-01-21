@@ -20,6 +20,6 @@ int main(int argc, char **argv){
 	// 	std::cout << findJack(false) << std::endl;
 	// }
 //	comparisons = 0;
-	//algOne(argv, argc);
+	algOne(argv, argc);
 	algTwo(argv, argc);
 }

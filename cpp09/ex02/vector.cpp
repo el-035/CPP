@@ -18,20 +18,19 @@ void sortPairs(size_t &bSize, std::vector<int> &v){
 		bSize /= 2;
 		return ;
 	}
-//	std::cout << "BLOCK SIZE: " << bSize << std::endl; //TODO: COMMENT OUT
+//	std::cout << "BLOCK SIZE: " << bSize << std::endl;
 //	printBlocks(v, bSize);
 
-	while (index + (bSize * 2) <= v.size()){	//double check this condition
+	while (index + (bSize * 2) <= v.size()){
 		size_t first = index + bSize -1;
 		size_t second = index + 2 * bSize - 1;
 
-//		comparisons++;	//testing
 		if (v[first] > v[second])
 			std::swap_ranges(v.begin() + index, v.begin() + index + bSize, v.begin() + index + bSize);
 
 		index += (2 * bSize);
 	}
-//	printBlocks(v, bSize); //TODO: COMMENT OUT
+//	printBlocks(v, bSize);
 //	std::cout << std::endl;
 
 	bSize *=2;
@@ -44,13 +43,13 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 	size_t nBlocks = v.size() / bSize;
 	size_t prevJ = 0;
 
-//	std::cout << "num of blocks: " << nBlocks << std::endl;
 //	std::cout << "BLOCK SIZE: " << bSize << std::endl;
 //	printBlocks(v, bSize);
 //	std::cout << std::endl;
 
 	if (nBlocks > 2){
 		findJack(true);
+		
 		//move smaller blocks to low vector
 		std::vector<int> low;
 		std::vector<int> main;
@@ -87,12 +86,11 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 			prevJ = Jack;
 			size_t minBlock = 1;
 
-			if (!low.empty() && curBlock > (low.size() / bSize))		//double ckeck
+			if (!low.empty() && curBlock > (low.size() / bSize))
 				curBlock = low.size() / bSize;
 
 			while(curBlock > 0){
 				size_t insBlock = binSearch(v, bSize, minBlock, max[curBlock - 1], low[curBlock * bSize - 1]);
-//				insBlock -= 1;
 
 				//INSERT FROM LOW TO MAIN
 				v.insert(v.begin() + (insBlock * bSize), low.begin() +  (curBlock -1) * bSize, low.begin() +  (curBlock - 1) * bSize  + bSize);
@@ -100,7 +98,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 				
 				for (size_t i = 0; i < max.size(); i++)
 					max[i] += 1;
-			
+				
 				max.erase(max.begin() + curBlock  - 1, max.begin() + curBlock);	//
 
 //				debugPrint(v, low, left, max, bSize); //TODO: comment out
@@ -150,20 +148,18 @@ bool algOne(char **argv, int argc){
 
 	printVector(v, true);
 
+	//////////////////////////////////////////////////////////////
+	// if (is_sorted(v))
+	// 	std::cout << GREEN << "SORTED" << std::endl;
+	// else
+	// 	std::cout << RED << "NOT SORTED" << STD << std::endl;
+	//////////////////////////////////////////////////////////////
+	
 	//final time
 	long long endT = finalTime(startT);
 	std::cout << "Time to process a range of " << v.size() << " elements with std::vector: " << endT << " us" << std::endl;
 
-	// TODO: DELETE!
-/* 	int maxCmp = F(v.size());
-	std::cout << "MAX COMPARISONS: " << maxCmp << std::endl;
-	std::cout << "TOT COMPARISONS: " << comparisons << std::endl;
-	if (is_sorted(v))
-		std::cout << GREEN << "SORTED" << std::endl;
-	else
-		std::cout << RED << "NOT SORTED" << STD << std::endl;
-	if (maxCmp < comparisons)
-		std::cout << RED << "TOO MANY COMPARISONS" << STD << std::endl; */
+	
 
 	return true;
 }
