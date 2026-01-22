@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-Operation::Operation(int a, int b, char s) : a(a), b(b), sign(s) {}
+Operation::Operation(long long a, long long b, char s) : a(a), b(b), sign(s) {}
 
 Operation::Operation(const Operation& other) : a(other.a), b(other.b), sign(other.sign){}
 	
@@ -21,7 +21,7 @@ bool Operation::isOperand(char c){
 	return false;
 }
 
-int Operation::operation(){
+long long Operation::operation(){
 	if (sign == '+')
 		return (a + b);
 	else if (sign == '-')

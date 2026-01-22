@@ -81,7 +81,7 @@ bool mapData(std::map<std::string, float> *data){
 		return (std::cerr << ERR_EMPTY << std::endl, false);
 	datafile.seekg(0, std::ios::beg);
 
-	//check first line --bad header
+	//check first line
 	std::string line;
 	std::getline(datafile, line);
 

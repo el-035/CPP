@@ -1,7 +1,7 @@
 
 CXX = c++
 
-SRC = main.cpp vector.cpp helpers.cpp list.cpp to_delete.cpp #PmergeMe.cpp
+SRC = main.cpp vector.cpp helpers.cpp list.cpp #PmergeMe.cpp
 
 #creates object files from the c files given
 OBJDIR = stuff

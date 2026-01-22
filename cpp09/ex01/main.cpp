@@ -20,7 +20,7 @@ bool validExpr(std::string& input){
 }
 
 void execExpr(std::string& expr){
-	std::stack <int> rpn;
+	std::stack <long long> rpn;
 	int b;
 	for (size_t i = 0; i < expr.length(); i++){
 		if(isdigit(expr[i]))
