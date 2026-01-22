@@ -20,7 +20,7 @@ bool validExpr(std::string& input){
 }
 
 void execExpr(std::string& expr){
-	std::stack <long long> rpn;
+	std::stack <int> rpn;
 	int b;
 	for (size_t i = 0; i < expr.length(); i++){
 		if(isdigit(expr[i]))
@@ -30,7 +30,10 @@ void execExpr(std::string& expr){
 			rpn.pop();
 			Operation data(rpn.top(), b, expr[i]);
 			rpn.pop();
-			rpn.push(data.operation());
+			if (data.checkOp())
+				rpn.push(data.operation());
+			else
+				return ;
 		}
 		else if (expr[i] == ' ')
 			continue ;

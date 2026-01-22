@@ -8,17 +8,18 @@ bool validExpr(std::string& input);
 void execExpr(std::string& expr);
 
 class Operation{
-	long long a;
-	long long b;
+	int a;
+	int b;
 	char sign;
 
 	public:
-	Operation(long long a, long long b, char s);
+	Operation(int a, int b, char s);
 	Operation(const Operation& other);
 	Operation& operator=(const Operation& other);
 	~Operation();
 
-	long long operation();
+	int operation();
+	bool checkOp();
 	static bool isOperand(char c);
 };
 

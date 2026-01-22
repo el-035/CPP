@@ -48,6 +48,9 @@ bool validateValue(std::string& value){
 	float n = atof(value.c_str());
 	if (n > 1000)
 		return (std::cerr << BAD_VALUE << std::endl, false);
+	double nn = atof(value.c_str());
+	if (nn > 1000.0)
+		return (std::cerr << BAD_VALUE << std::endl, false);
 	return true;
 }
 

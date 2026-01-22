@@ -159,7 +159,5 @@ bool algOne(char **argv, int argc){
 	long long endT = finalTime(startT);
 	std::cout << "Time to process a range of " << v.size() << " elements with std::vector: " << endT << " us" << std::endl;
 
-	
-
 	return true;
 }
