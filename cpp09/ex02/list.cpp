@@ -56,7 +56,6 @@ void mergeList(std::list<int>& l, size_t& bSize){
 	if (nBlocks > 2){
 		findJack(true);
 		//move smaller blocks to low list
-
 		std::list<int> low;
 		std::list<int> left;
 		std::list<int> main;

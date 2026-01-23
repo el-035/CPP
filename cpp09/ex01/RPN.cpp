@@ -45,6 +45,9 @@ bool Operation::checkOp(){
 		check = static_cast<long long>(a) - static_cast<long long>(b);
 	}
 	else if (sign == '/'){
+		if (b == 0)
+		return (std::cerr << "Error: cannot divide by 0" << std::endl, false);
+
 		res = a / b;
 		check = static_cast<long long>(a) / static_cast<long long>(b);
 	}

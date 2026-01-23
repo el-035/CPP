@@ -37,8 +37,6 @@ void sortPairs(size_t &bSize, std::vector<int> &v){
 	sortPairs(bSize, v);	
 }
 
-
-
 void mergeInsert(size_t &bSize, std::vector<int> &v){
 	size_t nBlocks = v.size() / bSize;
 	size_t prevJ = 0;
@@ -63,10 +61,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 				main.insert(main.end(), v.begin() + i, v.begin() + i + bSize);
 			else if (block % 2 == 0){
 				low.insert(low.end(), v.begin() + i, v.begin() + i + bSize);
-				if (max.empty())	//TODO: why this condition
-					max.push_back(lim);
-				else
-					max.push_back(lim);
+				max.push_back(lim);
 				lim++;
 			}
 			else
@@ -76,7 +71,7 @@ void mergeInsert(size_t &bSize, std::vector<int> &v){
 		left.insert(left.end(), v.begin() + i, v.end());
 		v.swap(main);
 		
-//		debugPrint(v, low, left, max, bSize);	//TODO: comment out
+//		debugPrint(v, low, left, max, bSize);
 		
 		//do insertion of low into v
 		while(!low.empty()){

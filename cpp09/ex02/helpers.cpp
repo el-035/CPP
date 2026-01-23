@@ -1,6 +1,6 @@
 #include"PmergeMe.hpp"
 
-size_t findJack(bool start){ //starts by returing 3, change double prev to 0 if 1 needed
+size_t findJack(bool start){
 	static size_t prev = 1;
 	static size_t doublePrev = 0;
 	if (start){
@@ -28,14 +28,6 @@ bool validateDigit(const std::string& input){
 	return true;
 }
 
-
-
-
-
-
-
-
-
 long long startTime(){
 	struct timeval time;
 	long long startTime;
@@ -53,9 +45,6 @@ long long finalTime(long long start){
 	endTime = (time.tv_sec * 1000000LL + time.tv_usec) - start;
 	return (endTime);
 }
-
-
-
 
 bool duplicates(int argc, char **argv){
 	std::vector<int> tmp;
